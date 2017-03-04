@@ -55,6 +55,8 @@
 5. Dodać kontener z nowym tagiem `my-app`.
 6. Dodać czekanie za załadowanie DOMa przed uruchomieniem procesu 
     bootstrapowanie głównego modułu.
+    
+![](./docs/portal-vod.png)
 
 ## Krok po kroku (z `angular-cli`)
 
@@ -108,7 +110,6 @@
   - `npm run build:mock`
   - `npm run start:mock-server`
 
-
 ## Linki
 
 * https://angular.io/ - strona domowa
@@ -128,9 +129,9 @@
 - http://techslides.com/demos/sample-videos/small.mp4
 - http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
 - https://www.w3schools.com/html/mov_bbb.mp4
-- http://bbb3d.renderfarming.net/download.html (Standard 2D)
 - http://trailers.divx.com/divx_prod/profiles/WiegelesHeliSki_DivXPlus_19Mbps.mkv
 - http://trailers.divx.com/divx_prod/divx_plus_hd_showcase/Sintel_DivXPlus_6500kbps.mkv
+- http://bbb3d.renderfarming.net/download.html (Standard 2D)
 
 ### Do zweryfikowania
 
