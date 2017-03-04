@@ -21,9 +21,9 @@ export const VIDEOS = [
     "url": "http://s2.converto.io/proxy.php?id=6uL00pc8pa4E6OjpYrSUZtO8BGxgwu18"
   },
   {
-    "id": "de417dd9-0308-50af-81d1-bf19e686a32b",
-    "name": "Chicken",
-    "description": "Te ovwe pot neglona veewmi navbih ruhjapike hoj deridku mefcaj laehacu ig sagral fok jafosi rehfahdo.",
+    "id": "ced98143-3b2f-516e-b1ad-849108a18b8c",
+    "name": "Fish",
+    "description": "Lev daj juwvek sigacbep nojocmu seffegak hofninfuk nih turvu ti imi efo jas otero.",
     "thumb": "https://i.ytimg.com/vi/FR0UvfEIUnI/maxresdefault.jpg",
     "url": "http://s2.converto.io/proxy.php?id=6uL00pc8pa4E6OjpYrSUZtO8BGxgwu18"
   }

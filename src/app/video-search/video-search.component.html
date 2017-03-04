@@ -1,4 +1,10 @@
-<h2>Lista filmów</h2>
+<h2>Wyszukiwarka</h2>
+
+<input
+  #phrase
+  (keyup.enter)="search(phrase.value)"
+  placeholder="Wpisz tytuł filmu..."
+>
 
 <ul>
   <li *ngFor="let video of videos">

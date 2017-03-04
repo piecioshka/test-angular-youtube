@@ -10,7 +10,7 @@
 * [x] Prezentacja profilu filmu: tytuł, player (wraz z posterem) oraz opisem.
 * [x] Odtwarzanie niezaszyfrowanego wideo.
 * [x] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie. 
-* [ ] Wyszukiwanie filmów po tytule.
+* [x] Wyszukiwanie filmów po tytule.
 * [ ] Możliwość sortowania i filtrowania listy filmów.
 * [ ] Mechanizm paginacji.
 
@@ -90,10 +90,24 @@
   - pobierać obiekt video `VideoService`
 31. W `video.component.html` dodać zabezpieczenie przed brakiem obiektu `video`
 32. `ng generate component video-not-found`
-33. W `app-routing.module.ts` dodać nową ścieżkę: `video-not-found`.
+33. W `app-routing.module.ts` dodać nową ścieżkę: `video-not-found` 
+  (VideoNotFoundComponent).
 34. W `video.component.ts` dodać sprawdzenie, czy VideoService zwrócić 
   falsy value, wtedy przekierować na stronę z komponentem 
-  `VideoNotFoundComponent` za pomocą `Router`a.
+  `VideoNotFoundComponent` za pomocą `Router`a
+35. `ng generate component video-search`
+36. W `app-routing.module.ts` dodać nową ścieżkę: `search`
+  (VideoSearchComponent)
+37. W `app.component.html` stworzyć menu z linkiem do wyszukiwarki
+38. W `video.service.ts` stworzyć funkcję, która będzie filtrowała filmy  
+  (wykorzystać już istniejącą funkcją `getVideos`)
+39. Dodać style dla wyszukiwarki wykorzystując dwa już istniejące:
+  - `video.component.css`
+  - `video-list.component.css`
+40. W `video-search.component.html` stworzyć pole (input), gdzie użytkownik 
+  będzie wpisywał tytuł filmu.
+41. W `video-search.component.ts` stworzyć funkcję `search`, która będzie 
+  uruchamiana po naciśnięciu "ENTER" przez użītkownika.
 
 ### Opcjonalnie
 

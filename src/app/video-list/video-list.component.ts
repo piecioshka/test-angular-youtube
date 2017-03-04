@@ -17,9 +17,10 @@ export class VideoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.videoService.getVideos().then((VIDEOS) => {
-      this.videos = VIDEOS;
-    })
+    this.videoService.getVideos()
+      .then((VIDEOS) => {
+        this.videos = VIDEOS;
+      })
   }
 
 }
