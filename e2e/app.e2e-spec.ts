@@ -1,6 +1,6 @@
 import { WarsawjsWorkshopPage } from './app.po';
 
-describe('warsawjs-workshop App', () => {
+describe('warsawjs-workshop-4-portal-vod App', () => {
   let page: WarsawjsWorkshopPage;
 
   beforeEach(() => {
