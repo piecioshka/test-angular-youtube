@@ -9,7 +9,7 @@
 * [x] Prezentacja listy miniaturek filmów wraz z tytułami i skróconym opisem
 * [x] Prezentacja profilu filmu: tytuł, player (wraz z posterem) oraz opisem
 * [x] Odtwarzanie niezaszyfrowanego wideo.
-* [ ] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie 
+* [x] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie 
 * [ ] Wyszukiwanie filmów po tytule.
 * [ ] Możliwość sortowania i filtrowania listy filmów.
 * [ ] Mechanizm paginacji.
@@ -89,6 +89,11 @@
   - pobierać parametr `id` z `ActivatedRoute` (rxjs)
   - pobierać obiekt video `VideoService`
 31. W `video.component.html` dodać zabezpieczenie przed brakiem obiektu `video`
+32. `ng generate component video-not-found`
+33. W `app-routing.module.ts` dodać nową ścieżkę: `video-not-found`.
+34. W `video.component.ts` dodać sprawdzenie, czy VideoService zwrócić 
+  falsy value, wtedy przekierować na stronę z komponentem 
+  `VideoNotFoundComponent` za pomocą `Router`a.
 
 ### Opcjonalnie
 
