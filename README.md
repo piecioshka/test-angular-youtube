@@ -6,10 +6,10 @@
 
 ## Zakres funkcjonalności projektu
 
-* [x] Prezentacja listy miniaturek filmów wraz z tytułami i skróconym opisem
-* [x] Prezentacja profilu filmu: tytuł, player (wraz z posterem) oraz opisem
+* [x] Prezentacja listy miniaturek filmów wraz z tytułami i skróconym opisem.
+* [x] Prezentacja profilu filmu: tytuł, player (wraz z posterem) oraz opisem.
 * [x] Odtwarzanie niezaszyfrowanego wideo.
-* [x] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie 
+* [x] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie. 
 * [ ] Wyszukiwanie filmów po tytule.
 * [ ] Możliwość sortowania i filtrowania listy filmów.
 * [ ] Mechanizm paginacji.
