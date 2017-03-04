@@ -11,8 +11,10 @@
 * [x] Odtwarzanie niezaszyfrowanego wideo.
 * [x] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie. 
 * [x] Wyszukiwanie filmów po tytule.
-* [ ] Możliwość sortowania i filtrowania listy filmów.
+* [x] Możliwość sortowania listy filmów.
+* [ ] Wyszukiwarka: autofocus na polu input.
 * [ ] Mechanizm paginacji.
+* [ ] Server-side rendering.
 
 ## O czym powiedzieć
 
@@ -51,10 +53,13 @@
 3. Podmienić `warsawjs-workshop-portal-vod` -> `warsawjs-workshop-4-portal-vod`
 4. Ustawić tytuł strony: `WarsawJS Workshop 4: Portal VOD`
 5. `npm start`
+
+### Lista filmów (z playerami)
+
 6. `ng generate component video-list`
 7. app.component.html -> (HTML) `<app-video-list></app-video-list>`
 8. `ng generate service video`
-9. Przenieść "service" do katalog "video-list"
+9. Przenieść `video.service` do katalogu `src/app/video-list`
 10. video-list.component.html -> (providers) `VideoService`
 11. `VideoService` -> `getVideos`
   - Wygenerować dane testowe
@@ -62,7 +67,10 @@
 13. Stworzyć plik z mockiem do filmów
 14. Przerobić pobieranie na `Promise.resolve(VIDEOS)`
 15. Dodać style
-16. Pokazać kontrolkę aby móc odtworzyć film
+16. Pokazać kontrolkę playera aby móc odtworzyć film
+
+### Profil filmu z playerem
+
 17. `ng generate component video`
 18. Przenieść markup filmu do `video.component.html`
 19. W `video-list.component.html` dodać `<app-video>`
@@ -88,6 +96,9 @@
   - usunąć dekorator `@Input()` z pola `video`
   - pobierać parametr `id` z `ActivatedRoute` (rxjs)
   - pobierać obiekt video `VideoService`
+
+### Zabezpieczenie przed niepoprawnym identyfikatorem filmu
+
 31. W `video.component.html` dodać zabezpieczenie przed brakiem obiektu `video`
 32. `ng generate component video-not-found`
 33. W `app-routing.module.ts` dodać nową ścieżkę: `video-not-found` 
@@ -95,6 +106,9 @@
 34. W `video.component.ts` dodać sprawdzenie, czy VideoService zwrócić 
   falsy value, wtedy przekierować na stronę z komponentem 
   `VideoNotFoundComponent` za pomocą `Router`a
+
+### Wyszukiwarka
+
 35. `ng generate component video-search`
 36. W `app-routing.module.ts` dodać nową ścieżkę: `search`
   (VideoSearchComponent)
@@ -107,13 +121,28 @@
 40. W `video-search.component.html` stworzyć pole (input), gdzie użytkownik 
   będzie wpisywał tytuł filmu.
 41. W `video-search.component.ts` stworzyć funkcję `search`, która będzie 
-  uruchamiana po naciśnięciu "ENTER" przez użītkownika.
+  uruchamiana po naciśnięciu "ENTER" przez użytkownika.
 
-### Opcjonalnie
+### Sortowanie
+
+42. `ng generate service sorting`
+43. Przenieść `sorting.service` do katalogu `src/app/video-list`
+44. Dodać linki, do sortowanie ASC i DESC w plikach
+  - `video-search.component.html` 
+  - `video-list.component.html` 
+45. Dodać funkcje sortujące: `sortAscending`, `sortDescending` w plikach:
+  - `video-search.component.ts`
+  - `video-list.component.ts`
+46. W `sorting.service.ts` stworzyć funkcje: `ascending`, `descending`
+47. W funkcjach `sortAscending`, `sortDescending` wykorzystać ww funkcje.
+
+### *Opcjonalnie
 
 1. Stworzyć serwer zwracający dane fake-owe:
   - `npm run build:mock`
   - `npm run start:mock-server`
+
+---
 
 ## Linki
 

@@ -6,6 +6,9 @@
   placeholder="Wpisz tytuł filmu..."
 >
 
+[<a (click)="sortAscending()">ASC</a>]
+[<a (click)="sortDescending()">DESC</a>]
+
 <ul>
   <li *ngFor="let video of videos">
     <a routerLink="/video/{{ video.id }}">
