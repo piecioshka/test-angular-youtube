@@ -12,7 +12,7 @@
 * [x] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie. 
 * [x] Wyszukiwanie filmów po tytule (autofocus na polu input).
 * [x] Możliwość sortowania listy filmów.
-* [ ] Mechanizm paginacji.
+* [x] Mechanizm paginacji.
 * [ ] Server-side rendering.
 
 ## O czym powiedzieć
@@ -134,6 +134,15 @@
   - `video-list.component.ts`
 46. W `sorting.service.ts` stworzyć funkcje: `ascending`, `descending`
 47. W funkcjach `sortAscending`, `sortDescending` wykorzystać ww funkcje.
+
+### Paginacja
+
+48. Wykorzystać paczkę `ng2-pagination` (http://michaelbromley.github.io/ng2-pagination/)
+49. W `app.module.ts` zaimportować nowy moduł
+50. Wykorzystać pipe `pagination` oraz komponent `<pagination-controls>` w 
+  plikach:
+  - `video-list.component.html`
+  - `video-search.component.html`
 
 ### *Opcjonalnie
 

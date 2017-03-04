@@ -17,7 +17,7 @@ import { SortingService } from '../video-list/sorting.service';
   ]
 })
 export class VideoSearchComponent implements OnInit {
-  videos: Video[];
+  videos: Video[] = [];
 
   constructor(private videoService: VideoService,
               private sortingService: SortingService) {
