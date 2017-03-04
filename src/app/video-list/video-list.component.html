@@ -4,9 +4,6 @@
 
 <ul>
   <li *ngFor="let video of videos">
-    <section>
-      <h3>{{ video.name }}</h3>
-      <video [src]="video.url" controls></video>
-    </section>
+    <app-video [video]="video"></app-video>
   </li>
 </ul>

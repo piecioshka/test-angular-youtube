@@ -70,10 +70,16 @@
 10. Wyświetlić listę filmów
 11. Stworzyć plik z mockiem do filmów
 12. Przerobić pobieranie na `Promise.resolve(VIDEOS)`
-11. Dodać style
-12. Pokazać kontrolkę aby móc odtworzyć film
-13. `ng generate component video`
-14. 
+13. Dodać style
+14. Pokazać kontrolkę aby móc odtworzyć film
+15. `ng generate component video`
+16. Przenieść markup filmu do `video.component.html`
+17. W `video-list.component.html` dodać `<app-video>`
+18. Wstrzyknąć dane
+  - `<app-video [video]="video"></app-video>`
+  - W `video.component.ts` zdefiniować `@Input()`
+19. Przenieść definicję wyglądu `<video>` do `video.component.css`
+20. ...
 
 ### Opcjonalnie
 
