@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LatestVideoService } from '../latest-video-list/latest-video.service';
-import { Video } from '../video/video-model';
+import { Video } from '../video/video.model';
 
 @Component({
   selector: 'app-video-search',

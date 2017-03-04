@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { VIDEOS } from './mock-videos';
-import { Video } from '../video/video-model';
+import { Video } from '../video/video.model';
 
 @Injectable()
 export class LatestVideoService {

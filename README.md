@@ -77,7 +77,7 @@
   - `<app-video [video]="video"></app-video>`
   - W `video.component.ts` zdefiniować `@Input()`
 21. Przenieść definicję wyglądu `<video>` do `video.component.css`
-22. Stworzyć model `Video` i użyć w:
+22. Stworzyć `video.model` i użyć w:
   - `video.component.ts`
   - `video-list.component.ts`
   - `latest-video.service.ts`

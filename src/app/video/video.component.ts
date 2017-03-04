@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import { Video } from './video-model';
+import { Video } from './video.model';
 import { LatestVideoService } from '../latest-video-list/latest-video.service';
 
 @Component({
