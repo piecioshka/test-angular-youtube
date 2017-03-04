@@ -10,9 +10,8 @@
 * [x] Prezentacja profilu filmu: tytuł, player (wraz z posterem) oraz opisem.
 * [x] Odtwarzanie niezaszyfrowanego wideo.
 * [x] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie. 
-* [x] Wyszukiwanie filmów po tytule.
+* [x] Wyszukiwanie filmów po tytule (autofocus na polu input).
 * [x] Możliwość sortowania listy filmów.
-* [ ] Wyszukiwarka: autofocus na polu input.
 * [ ] Mechanizm paginacji.
 * [ ] Server-side rendering.
 
