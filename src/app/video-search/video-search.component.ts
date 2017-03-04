@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { LatestVideoService } from '../latest-video-list/latest-video.service';
 import { Video } from '../video/video-model';
-import { SortingService } from '../video-list/sorting.service';
 
 @Component({
   selector: 'app-video-search',
   templateUrl: './video-search.component.html',
   providers: [
-    LatestVideoService,
-    SortingService
+    LatestVideoService
   ]
 })
 export class VideoSearchComponent implements OnInit {
   videos: Video[] = [];
 
-  constructor(private latestVideoService: LatestVideoService,
-              private sortingService: SortingService) {
+  constructor(private latestVideoService: LatestVideoService) {
   }
 
   ngOnInit() {
