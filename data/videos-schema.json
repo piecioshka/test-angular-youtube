@@ -1,0 +1,43 @@
+{
+    "id": "videos",
+    "type": "object",
+    "required": [
+        "videos"
+    ],
+    "properties": {
+        "videos": {
+            "type": "array",
+            "minItems": 50,
+            "items": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "thumb",
+                    "url"
+                ],
+                "properties": {
+                    "id": {
+                        "chance": {
+                            "guid": {}
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "faker": "commerce.product"
+                    },
+                    "description": {
+                        "chance": {
+                            "paragraph": {
+                                "sentences": 1
+                            }
+                        }
+                    },
+                    "thumb": "https://i.ytimg.com/vi/FR0UvfEIUnI/maxresdefault.jpg",
+                    "url": "http://s2.converto.io/proxy.php?id=6uL00pc8pa4E6OjpYrSUZtO8BGxgwu18"
+                }
+            }
+        }
+    }
+}

@@ -59,14 +59,41 @@
 
 1. `npm install -g angular-cli`
 2. `ng new NAZWA_PROJEKTU` # warsawjs-workshop-portal-vod
-5. `npm start`
+3. `npm start`
 4. `ng generate component video-list`
+5. app.component.html -> (HTML) `<app-video-list></app-video-list>`
+6. `ng generate service video`
+7. Przenieść "service" do katalog "video-list"
+8. video-list.component.html -> (providers) `VideoService`
+9. `VideoService` -> `getVideos`
+10. Mock
+  - `npm run build:mock`
+  - `npm run start:mock-server`
+11. `ng generate component video`
+
 
 ## Linki
 
 * https://angular.io/ - strona domowa
 * https://twitter.com/angular - oficjalne konto na Twitterze
-* https://angular.io/docs/ts/latest/ - dokumentacja
+* https://angular.io/docs/ts/latest/ - dokumentacja frameworka `Angular`
+* https://github.com/angular/angular-cli/wiki - dokumentacja narzędzia `CLI`
+
+## Mockowanie danych
+
+* http://json-schema-faker.js.org/ - narzędzie, które buduje losowe dane w JSON
+* http://json-schema.org - specyfikacja budowania 
+* http://chancejs.com/ - biblioteka zwraca losowe dane w odpowiednim formacie
+* https://github.com/marak/Faker.js/ - budowanie wielu losowych danych
+
+## List filmów w sieci
+
+- http://techslides.com/demos/sample-videos/small.mp4
+- http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
+- https://www.w3schools.com/html/mov_bbb.mp4
+- http://bbb3d.renderfarming.net/download.html (Standard 2D)
+- http://trailers.divx.com/divx_prod/profiles/WiegelesHeliSki_DivXPlus_19Mbps.mkv
+- http://trailers.divx.com/divx_prod/divx_plus_hd_showcase/Sintel_DivXPlus_6500kbps.mkv
 
 ### Do zweryfikowania
 
