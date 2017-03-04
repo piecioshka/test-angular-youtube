@@ -59,8 +59,8 @@
 
 1. `npm install -g angular-cli`
 2. `ng new NAZWA_PROJEKTU` # warsawjs-workshop-portal-vod
+5. `npm start`
 4. `ng generate component video-list`
-5. 
 
 ## Linki
 
