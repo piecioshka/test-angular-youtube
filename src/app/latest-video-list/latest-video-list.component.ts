@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoService } from '../video-list/video.service';
+import { LatestVideoService } from './latest-video.service';
 import { Video } from '../video/video-model';
 
 @Component({
@@ -7,17 +7,17 @@ import { Video } from '../video/video-model';
   templateUrl: './latest-video-list.component.html',
   styleUrls: ['./latest-video-list.component.css'],
   providers: [
-    VideoService
+    LatestVideoService
   ]
 })
 export class LatestVideoListComponent implements OnInit {
   private videos: Video[] = [];
 
-  constructor(private videoService: VideoService) {
+  constructor(private latestVideoService: LatestVideoService) {
   }
 
   ngOnInit() {
-    this.videoService.getVideos()
+    this.latestVideoService.getVideos()
       .then((VIDEOS) => {
         this.videos = VIDEOS;
       })

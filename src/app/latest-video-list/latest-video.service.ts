@@ -3,7 +3,7 @@ import { VIDEOS } from './mock-videos';
 import { Video } from '../video/video-model';
 
 @Injectable()
-export class VideoService {
+export class LatestVideoService {
 
   constructor() {
   }

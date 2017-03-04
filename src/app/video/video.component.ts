@@ -3,20 +3,20 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 import { Video } from './video-model';
-import { VideoService } from '../video-list/video.service';
+import { LatestVideoService } from '../latest-video-list/latest-video.service';
 
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css'],
   providers: [
-    VideoService
+    LatestVideoService
   ]
 })
 export class VideoComponent implements OnInit {
   video: Video;
 
-  constructor(private videoService: VideoService,
+  constructor(private latestVideoService: LatestVideoService,
               private route: ActivatedRoute,
               private router: Router) {
   }
@@ -24,7 +24,7 @@ export class VideoComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .switchMap((params: Params) => {
-        return this.videoService.getVideo(params['id']);
+        return this.latestVideoService.getVideo(params['id']);
       })
       .subscribe(video => {
         if (!video) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoService } from '../video-list/video.service';
+import { LatestVideoService } from '../latest-video-list/latest-video.service';
 import { Video } from '../video/video-model';
 import { SortingService } from '../video-list/sorting.service';
 
@@ -7,14 +7,14 @@ import { SortingService } from '../video-list/sorting.service';
   selector: 'app-video-search',
   templateUrl: './video-search.component.html',
   providers: [
-    VideoService,
+    LatestVideoService,
     SortingService
   ]
 })
 export class VideoSearchComponent implements OnInit {
   videos: Video[] = [];
 
-  constructor(private videoService: VideoService,
+  constructor(private latestVideoService: LatestVideoService,
               private sortingService: SortingService) {
   }
 
@@ -26,7 +26,7 @@ export class VideoSearchComponent implements OnInit {
     if (!phrase) {
       return;
     }
-    this.videoService.searchVideosByTitle(phrase)
+    this.latestVideoService.searchVideosByTitle(phrase)
       .then((videos) => {
         this.videos = videos;
       })

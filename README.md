@@ -58,9 +58,9 @@
 6. `ng generate component video-list`
 7. app.component.html -> (HTML) `<app-video-list></app-video-list>`
 8. `ng generate service video`
-9. Przenieść `video.service` do katalogu `src/app/video-list`
-10. video-list.component.html -> (providers) `VideoService`
-11. `VideoService` -> `getVideos`
+9. Przenieść `latest-video.service` do katalogu `src/app/video-list`
+10. video-list.component.html -> (providers) `LatestVideoService`
+11. `LatestVideoService` -> `getVideos`
   - Wygenerować dane testowe
 12. Wyświetlić listę filmów
 13. Stworzyć plik z mockiem do filmów
@@ -80,7 +80,7 @@
 22. Stworzyć model `Video` i użyć w:
   - `video.component.ts`
   - `video-list.component.ts`
-  - `video.service.ts`
+  - `latest-video.service.ts`
 23. `ng generate module app-routing`
 24. W `app.module.ts` dodać `AppRoutingModule`
 25. W `app-routing.module.ts` zmienić `CommonModule` na `RouterModule`
@@ -94,7 +94,7 @@
 30. W `video.component.ts`:
   - usunąć dekorator `@Input()` z pola `video`
   - pobierać parametr `id` z `ActivatedRoute` (rxjs)
-  - pobierać obiekt video `VideoService`
+  - pobierać obiekt video `LatestVideoService`
 
 ### Zabezpieczenie przed niepoprawnym identyfikatorem filmu
 
@@ -102,8 +102,8 @@
 32. `ng generate component video-not-found`
 33. W `app-routing.module.ts` dodać nową ścieżkę: `video-not-found` 
   (VideoNotFoundComponent).
-34. W `video.component.ts` dodać sprawdzenie, czy VideoService zwrócić 
-  falsy value, wtedy przekierować na stronę z komponentem 
+34. W `video.component.ts` dodać sprawdzenie, czy LatestVideoService zwrócił 
+  "falsy value", wtedy przekierować na stronę z komponentem 
   `VideoNotFoundComponent` za pomocą `Router`a
 
 ### Wyszukiwarka
@@ -112,7 +112,7 @@
 36. W `app-routing.module.ts` dodać nową ścieżkę: `search`
   (VideoSearchComponent)
 37. W `app.component.html` stworzyć menu z linkiem do wyszukiwarki
-38. W `video.service.ts` stworzyć funkcję, która będzie filtrowała filmy  
+38. W `latest-video.service.ts` stworzyć funkcję, która będzie filtrowała filmy  
   (wykorzystać już istniejącą funkcją `getVideos`)
 39. Dodać style dla wyszukiwarki wykorzystując dwa już istniejące:
   - `video.component.css`
