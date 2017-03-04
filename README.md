@@ -42,20 +42,6 @@
 * Serwisy to singletony
 * Routing
 
-## Krok po kroku (bez `angular-cli`)
-
-1. Stworzyć podstawową strukturę (`main, app.component, app.module`).
-2. Stworzyć konfigurację dla Webpack:
-    * Zainstaluj zależności: `ts-loader, typescript`
-    * Dodaj rozszerzenie `.ts`
-3. Wykorzystać narzędzie`./node_modules/.bin/tsc --init` do zbudowania
-    pliku `tsconfig.json`.
-4. Dodać skrypt wynikowy (`dist/bundle.js`) do `index.html` razem z dwoma 
-    zależnościami: `zone.js, reflect-metadata`.
-5. Dodać kontener z nowym tagiem `my-app`.
-6. Dodać czekanie za załadowanie DOMa przed uruchomieniem procesu 
-    bootstrapowanie głównego modułu.
-    
 ![](./docs/portal-vod.png)
 
 ## Krok po kroku (z `angular-cli`)
