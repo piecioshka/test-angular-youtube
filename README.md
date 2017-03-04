@@ -59,27 +59,32 @@
 
 1. `npm install -g angular-cli`
 2. `ng new NAZWA_PROJEKTU` # warsawjs-workshop-portal-vod
-3. `npm start`
-4. `ng generate component video-list`
-5. app.component.html -> (HTML) `<app-video-list></app-video-list>`
-6. `ng generate service video`
-7. Przenieść "service" do katalog "video-list"
-8. video-list.component.html -> (providers) `VideoService`
-9. `VideoService` -> `getVideos`
+3. Podmienić `warsawjs-workshop-portal-vod` -> `warsawjs-workshop-4-portal-vod`
+4. Ustawić tytuł strony: `WarsawJS Workshop 4: Portal VOD`
+5. `npm start`
+6. `ng generate component video-list`
+7. app.component.html -> (HTML) `<app-video-list></app-video-list>`
+8. `ng generate service video`
+9. Przenieść "service" do katalog "video-list"
+10. video-list.component.html -> (providers) `VideoService`
+11. `VideoService` -> `getVideos`
   * Wygenerować dane testowe
-10. Wyświetlić listę filmów
-11. Stworzyć plik z mockiem do filmów
-12. Przerobić pobieranie na `Promise.resolve(VIDEOS)`
-13. Dodać style
-14. Pokazać kontrolkę aby móc odtworzyć film
-15. `ng generate component video`
-16. Przenieść markup filmu do `video.component.html`
-17. W `video-list.component.html` dodać `<app-video>`
-18. Wstrzyknąć dane
+12. Wyświetlić listę filmów
+13. Stworzyć plik z mockiem do filmów
+14. Przerobić pobieranie na `Promise.resolve(VIDEOS)`
+15. Dodać style
+16. Pokazać kontrolkę aby móc odtworzyć film
+17. `ng generate component video`
+18. Przenieść markup filmu do `video.component.html`
+19. W `video-list.component.html` dodać `<app-video>`
+20. Wstrzyknąć dane
   - `<app-video [video]="video"></app-video>`
   - W `video.component.ts` zdefiniować `@Input()`
-19. Przenieść definicję wyglądu `<video>` do `video.component.css`
-20. ...
+21. Przenieść definicję wyglądu `<video>` do `video.component.css`
+22. Stworzyć model `Video`
+  - użyć w `video.component.ts` 
+  - użyć w `video-list.component.ts` 
+  - użyć w `video.service.ts` 
 
 ### Opcjonalnie
 
