@@ -66,10 +66,20 @@
 7. Przenieść "service" do katalog "video-list"
 8. video-list.component.html -> (providers) `VideoService`
 9. `VideoService` -> `getVideos`
-10. Mock
+  * Wygenerować dane testowe
+10. Wyświetlić listę filmów
+11. Stworzyć plik z mockiem do filmów
+12. Przerobić pobieranie na `Promise.resolve(VIDEOS)`
+11. Dodać style
+12. Pokazać kontrolkę aby móc odtworzyć film
+13. `ng generate component video`
+14. 
+
+### Opcjonalnie
+
+1. Stworzyć serwer zwracający dane fake-owe:
   - `npm run build:mock`
   - `npm run start:mock-server`
-11. `ng generate component video`
 
 
 ## Linki

@@ -1,3 +1,12 @@
 <p>
   video-list works!
 </p>
+
+<ul>
+  <li *ngFor="let video of videos">
+    <section>
+      <h3>{{ video.name }}</h3>
+      <video [src]="video.url" controls></video>
+    </section>
+  </li>
+</ul>

@@ -10,13 +10,15 @@ import { VideoService } from './video.service';
   ]
 })
 export class VideoListComponent implements OnInit {
+  private videos: any[];
 
-  constructor(
-    private videoService: VideoService
-  ) { }
+  constructor(private videoService: VideoService) {
+  }
 
   ngOnInit() {
-    console.log(this.videoService);
+    this.videoService.getVideos().then((VIDEOS) => {
+      this.videos = VIDEOS;
+    })
   }
 
 }
