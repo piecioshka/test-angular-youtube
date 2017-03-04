@@ -34,4 +34,11 @@ export class VideoComponent implements OnInit {
       });
   }
 
+  togglePlay($node) {
+    if ($node.paused) {
+      $node.play();
+    } else {
+      $node.pause();
+    }
+  }
 }

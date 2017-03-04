@@ -6,11 +6,6 @@ import { SortingService } from '../video-list/sorting.service';
 @Component({
   selector: 'app-video-search',
   templateUrl: './video-search.component.html',
-  styleUrls: [
-    '../app.component.css',
-    '../video/video.component.css',
-    '../video-list/video-list.component.css'
-  ],
   providers: [
     VideoService,
     SortingService
@@ -35,13 +30,5 @@ export class VideoSearchComponent implements OnInit {
       .then((videos) => {
         this.videos = videos;
       })
-  }
-
-  sortAscending() {
-    this.videos = this.videos.sort(this.sortingService.ascending);
-  }
-
-  sortDescending() {
-    this.videos = this.videos.sort(this.sortingService.descending);
   }
 }

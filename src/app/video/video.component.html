@@ -2,9 +2,12 @@
   <h3>{{ video.name }}</h3>
   <video
     controls
+    #videoTag
+    (click)="togglePlay(videoTag)"
     [src]="video.url"
     [poster]="video.thumb"></video>
-  <p>
+
+  <p class="lead">
     {{ video.description }}
   </p>
 </section>

@@ -144,6 +144,22 @@
   - `video-list.component.html`
   - `video-search.component.html`
 
+### Refaktoring detal filmu
+
+51. `ng generate component video-detail`
+52. Wycięcie detali filmu na rzecz `<app-video-detail>` z plików:
+  - `video-search.component.html`
+  - `video-list.component.html`
+ 
+### Refaktoring listy filmów
+
+53. `ng generate component latest-video-list`
+54. Zastąpienie obecnego użycia komponentu `video-list.component` nowo 
+stworzonym.
+55. Wykorzystanie komponentu `video-list.component` w plikach
+  - `video-search.component.html`
+  - `latest-video-list.component.html`
+
 ### *Opcjonalnie
 
 1. Stworzyć serwer zwracający dane fake-owe:

@@ -1,32 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { VideoService } from './video.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Video } from '../video/video-model';
 import { SortingService } from './sorting.service';
 
 @Component({
   selector: 'app-video-list',
   templateUrl: './video-list.component.html',
-  styleUrls: [
-    './video-list.component.css',
-    '../app.component.css'
-  ],
+  styleUrls: ['./video-list.component.css'],
   providers: [
-    VideoService,
     SortingService
   ]
 })
 export class VideoListComponent implements OnInit {
-  private videos: Video[] = [];
+  @Input() videos: Video[];
 
-  constructor(private videoService: VideoService,
-              private sortingService: SortingService) {
+  constructor(private sortingService: SortingService) {
   }
 
   ngOnInit() {
-    this.videoService.getVideos()
-      .then((VIDEOS) => {
-        this.videos = VIDEOS;
-      })
   }
 
   sortAscending() {

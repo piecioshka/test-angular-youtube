@@ -1,22 +1,12 @@
 <h2>Wyszukiwarka</h2>
 
-<input
-  #phrase
-  (keyup.enter)="search(phrase.value)"
-  placeholder="Wpisz tytuł filmu..."
-  autofocus
->
+<form>
+  <input
+    #phrase
+    (keyup.enter)="search(phrase.value)"
+    placeholder="Wpisz tytuł filmu..."
+    autofocus
+  >
+</form>
 
-[<a (click)="sortAscending()">ASC</a>]
-[<a (click)="sortDescending()">DESC</a>]
-
-<ul>
-  <li *ngFor="let video of videos | paginate: { itemsPerPage: 2, currentPage: p }">
-    <a routerLink="/video/{{ video.id }}">
-      <img [src]="video.thumb"/>
-      <p>{{ video.name }}</p>
-    </a>
-  </li>
-</ul>
-
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<app-video-list [videos]="videos"></app-video-list>

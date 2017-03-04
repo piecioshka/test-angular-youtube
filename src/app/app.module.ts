@@ -11,6 +11,8 @@ import { VideoComponent } from './video/video.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { VideoNotFoundComponent } from './video-not-found/video-not-found.component';
 import { VideoSearchComponent } from './video-search/video-search.component';
+import { VideoDetailComponent } from './video-detail/video-detail.component';
+import { LatestVideoListComponent } from './latest-video-list/latest-video-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { VideoSearchComponent } from './video-search/video-search.component';
     VideoListComponent,
     VideoComponent,
     VideoNotFoundComponent,
-    VideoSearchComponent
+    VideoSearchComponent,
+    VideoDetailComponent,
+    LatestVideoListComponent
   ],
   imports: [
     BrowserModule,
