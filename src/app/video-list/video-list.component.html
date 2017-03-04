@@ -1,9 +1,11 @@
-<p>
-  video-list works!
-</p>
+<h2>
+  Lista filmów:
+</h2>
 
 <ul>
   <li *ngFor="let video of videos">
-    <app-video [video]="video"></app-video>
+    <a routerLink="video/{{ video.id }}">
+      <img [src]="video.thumb"/>
+    </a>
   </li>
 </ul>

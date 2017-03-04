@@ -6,40 +6,41 @@
 
 ## Zakres funkcjonalności projektu
 
-* [ ] Wyświetlanie listy filmów.
+* [x] Prezentacja listy miniaturek filmów wraz z tytułami i skróconym opisem
+* [x] Prezentacja profilu filmu: tytuł, player (wraz z posterem) oraz opisem
+* [x] Odtwarzanie niezaszyfrowanego wideo.
+* [ ] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie 
+* [ ] Wyszukiwanie filmów po tytule.
 * [ ] Możliwość sortowania i filtrowania listy filmów.
 * [ ] Mechanizm paginacji.
-* [ ] Rejestracja i logowanie użytkownika.
-* [ ] Wyszukiwanie filmów po tytule.
-* [ ] Prezentacja profilu filmu.
-* [ ] Odtwarzanie niezaszyfrowanego wideo.
 
 ## O czym powiedzieć
 
-- Angular 2 jako narzędzie do tworzenia Progressive Web Apps, czyli 
+* Angular 2 jako narzędzie do tworzenia Progressive Web Apps, czyli 
     nowoczesnego rozwiązania tworzenia aplikacji webowych z użyciem trybu 
     offline.
-- Możliwość renderowania treści po stronie (Server-side rendering), dzięki 
+* Możliwość renderowania treści po stronie (Server-side rendering), dzięki 
     temu użytkownik posiada treść od razu po załadowaniu głównego dokumentu HTML
-- Nowa składnia budowania szablonów
-- Angular CLI: możliwość szybszego tworzenia szkieletu aplikacji
-- Wsparcie w edytorach: WebStorm, Visual Studio Code
-- Dekoratory - funkcje, które dodają zachowanie klasom, funkcjom, 
+* Nowa składnia budowania szablonów
+* Angular CLI: możliwość szybszego tworzenia szkieletu aplikacji
+* Wsparcie w edytorach: `WebStorm`, `Visual Studio Code`
+* Dekoratory - funkcje, które dodają zachowanie klasom, funkcjom, 
     właściwościom albo argumentom funkcji
     - Napisać własny dekorator, np. do timeout-u
     - `@Component` jest podtypem `@Injectable`
-- Framework posiada zdefiniowaną listę dostępnych dekoratorów.
-- TypeScript jako natywny język tworzenia aplikacji z użyciem frameworka 
+* Framework posiada zdefiniowaną listę dostępnych dekoratorów.
+* TypeScript jako natywny język tworzenia aplikacji z użyciem frameworka 
     Angular 2. Możliwa jest transformacja do ES6 albo nawet do ES5. Więcej 
     informacji tutaj: https://angular.io/docs/ts/latest/cookbook/ts-to-js.html
-- Konwencja tworzenie "commit message":
+* Konwencja tworzenie "commit message":
     https://gist.github.com/stephenparish/9941e89d80e2bc58a153
-- Rozszerzenie do Google Chrome: https://augury.angular.io/
-- Proces interpolacji
-- Proces Two-way data binding
-- Dyrektywy konstrukcyjne {`*`} (`structural directives`) [Tylko jedna per element]
-- Atrybuty [Wiele per element]
-- Serwisy jako singletony
+* Rozszerzenie do Google Chrome: https://augury.angular.io/
+* Proces interpolacji
+* Proces Two-way data binding
+* Dyrektywy konstrukcyjne {`*`} (`structural directives`) [Jedna per element]
+* Atrybuty [Wiele per element]
+* Serwisy to singletony
+* Routing
 
 ## Krok po kroku (bez `angular-cli`)
 
@@ -68,7 +69,7 @@
 9. Przenieść "service" do katalog "video-list"
 10. video-list.component.html -> (providers) `VideoService`
 11. `VideoService` -> `getVideos`
-  * Wygenerować dane testowe
+  - Wygenerować dane testowe
 12. Wyświetlić listę filmów
 13. Stworzyć plik z mockiem do filmów
 14. Przerobić pobieranie na `Promise.resolve(VIDEOS)`
@@ -81,10 +82,25 @@
   - `<app-video [video]="video"></app-video>`
   - W `video.component.ts` zdefiniować `@Input()`
 21. Przenieść definicję wyglądu `<video>` do `video.component.css`
-22. Stworzyć model `Video`
-  - użyć w `video.component.ts` 
-  - użyć w `video-list.component.ts` 
-  - użyć w `video.service.ts` 
+22. Stworzyć model `Video` i użyć w:
+  - `video.component.ts`
+  - `video-list.component.ts`
+  - `video.service.ts`
+23. `ng generate module app-routing`
+24. W `app.module.ts` dodać `AppRoutingModule`
+25. W `app-routing.module.ts` zmienić `CommonModule` na `RouterModule`
+26. W `app-routing.module.ts` stworzyć `routes: Routes` (path, component)
+  - `` - VideoListComponent
+  - `video/:id` - VideoComponent
+27. W `app.component` dodać `<router-outlet>`
+28. W `video-list.component.html` przerobić na listę miniaturek z linkami
+  - `<a routerLink="videos/{{ video.id }}">`
+29. Zaktualizować style
+30. W `video.component.ts`:
+  - usunąć dekorator `@Input()` z pola `video`
+  - pobierać parametr `id` z `ActivatedRoute` (rxjs)
+  - pobierać obiekt video `VideoService`
+31. W `video.component.html` dodać zabezpieczenie przed brakiem obiektu `video`
 
 ### Opcjonalnie
 

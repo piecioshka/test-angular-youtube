@@ -1,4 +1,10 @@
-<section>
+<section *ngIf="video">
   <h3>{{ video.name }}</h3>
-  <video [src]="video.url" controls></video>
+  <video
+    controls
+    [src]="video.url"
+    [poster]="video.thumb"></video>
+  <p>
+    {{ video.description }}
+  </p>
 </section>

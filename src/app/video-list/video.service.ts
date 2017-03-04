@@ -11,4 +11,12 @@ export class VideoService {
   getVideos(): Promise<Video[]> {
     return Promise.resolve(VIDEOS);
   }
+
+  getVideo(id: string) {
+    return this.getVideos().then((videos) => {
+      return videos.find((video) => {
+        return video.id === id;
+      });
+    })
+  }
 }
