@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "deploy": "gh-pages -d dist/",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -23,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
     "core-js": "^2.4.1",
+    "gh-pages": "^1.1.0",
     "ng2-pagination": "^2.0.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.7.6"
