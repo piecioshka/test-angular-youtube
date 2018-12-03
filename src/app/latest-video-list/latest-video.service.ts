@@ -8,11 +8,11 @@ export class LatestVideoService {
   constructor() {
   }
 
-  getVideos(): Promise<Video[]> {
+  getVideos(): Promise<Array<Video>> {
     return Promise.resolve(VIDEOS);
   }
 
-  getVideo(id: string) {
+  getVideo(id: string): Promise<Video> {
     return this.getVideos()
       .then((videos) => {
         return videos.find((video) => {
@@ -21,7 +21,7 @@ export class LatestVideoService {
       })
   }
 
-  searchVideosByTitle(title: string): Promise<Video[]> {
+  searchVideosByTitle(title: string): Promise<Array<Video>> {
     return this.getVideos()
       .then((videos) => {
         return videos.filter((video) => {
