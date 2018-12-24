@@ -8,17 +8,17 @@
 
 ## Features
 
-* [x] Zaprezentować listę miniaturek filmów wraz z tytułami i skróconym opisem
-* [x] Zaprezentować profil filmu: tytuł, poster oraz opis
-* [x] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie
-* [x] Wyszukać film po tytule
-* [x] Ustawić autofocus na polu wyszukiwania
-* [x] Udostępnić możliwość sortowania listy filmów
-* [ ] Poprawić testy jednostkowe
-* [ ] Dopisać testy end-to-end
-* [ ] Mechanizm paginacji
-* [ ] Server-side rendering
-* [ ] Routing Lazy Loading
+* :white_check_mark: Zaprezentować listę miniaturek filmów wraz z tytułami i skróconym opisem
+* :white_check_mark: Zaprezentować profil filmu: tytuł, poster oraz opis
+* :white_check_mark: Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie
+* :white_check_mark: Wyszukać film po tytule
+* :white_check_mark: Ustawić autofocus na polu wyszukiwania
+* :white_check_mark: Udostępnić możliwość sortowania listy filmów
+* :no_entry: Poprawić testy jednostkowe
+* :no_entry: Dopisać testy end-to-end
+* :no_entry: Mechanizm paginacji
+* :no_entry: Server-side rendering
+* :no_entry: Routing Lazy Loading
 
 ![](./docs/scheme.png)
 
