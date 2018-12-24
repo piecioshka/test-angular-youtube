@@ -5,7 +5,7 @@
 ## Zakres funkcjonalności projektu
 
 * [x] Zaprezentować listę miniaturek filmów wraz z tytułami i skróconym opisem
-* [x] Zaprezentować profil filmu: tytuł, player (wraz z posterem) oraz opisem
+* [x] Zaprezentować profil filmu: tytuł, poster oraz opis
 * [x] Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie
 * [x] Wyszukać film po tytule
 * [x] Ustawić autofocus na polu wyszukiwania
@@ -16,37 +16,13 @@
 * [ ] Server-side rendering
 * [ ] Routing Lazy Loading
 
-## O czym powiedzieć
+![](./docs/scheme.png)
 
-* **Angular** jako narzędzie do tworzenia Progressive Web Apps, czyli
-    nowoczesnego rozwiązania tworzenia aplikacji webowych z użyciem trybu
-    offline.
-* Możliwość renderowania treści po stronie (Server-side rendering), dzięki
-    temu użytkownik posiada treść od razu po załadowaniu głównego dokumentu HTML
-* Nowa składnia budowania szablonów
-* Angular CLI: możliwość szybszego tworzenia szkieletu aplikacji
-* Wsparcie w edytorach: `WebStorm`, `Visual Studio Code`
-* Dekoratory - funkcje, które dodają zachowanie klasom, funkcjom,
-    właściwościom albo argumentom funkcji
-    + Napisać własny dekorator, np. do timeout-u
-    + `@Component` jest podtypem `@Injectable`
-* Framework posiada zdefiniowaną listę dostępnych dekoratorów.
-* TypeScript jako natywny język tworzenia aplikacji z użyciem frameworka
-    **Angular**. Możliwa jest transformacja do ES6 albo nawet do ES5. Więcej
-    informacji tutaj: https://angular.io/docs/ts/latest/cookbook/ts-to-js.html
-* Konwencja tworzenie "commit message":
-    https://gist.github.com/stephenparish/9941e89d80e2bc58a153
-* Rozszerzenie do Google Chrome: https://augury.angular.io/
-* Interpolacja
-* Proces "Two-way data binding"
-* Dyrektywy konstrukcyjne {`*`} (`structural directives`) [Jedna per element]
-* Atrybuty [Wiele per element]
-* Serwisy to Singletony :rocket:
-* Routing (Lazy Loading)
+## Krok po kroku
 
-![](./docs/portal-vod.png)
+### 1. Setup z Angular CLI
 
-## Krok po kroku z Angular CLI
+<details>
 
 * `npm install -g @angular/cli`
 * `ng new NAZWA_PROJEKTU` # youtube
@@ -54,7 +30,9 @@
 * Ustawić opis strony: `Portal z filmami`
 * `npm start`
 
-### Lista filmów (z playerami)
+</details>
+
+### 2. Strona z listą filmów
 
 <details>
 
@@ -70,7 +48,7 @@
 
 </details>
 
-### Profil filmu z playerem
+### 3. Strona z profilem filmu
 
 <details>
 
@@ -102,7 +80,7 @@
 
 </details>
 
-### Zabezpieczenie przed niepoprawnym identyfikatorem filmu
+### 4. Zabezpieczenie przed nieznanym identyfikatorem filmu
 
 <details>
 
@@ -116,7 +94,7 @@
 
 </details>
 
-### Wyszukiwarka
+### 5. Wyszukiwarka (panel oraz strona)
 
 <details>
 
@@ -136,7 +114,7 @@
 
 </details>
 
-### Sortowanie
+### 6. Sortowanie listy filmów
 
 <details>
 
@@ -153,20 +131,7 @@
 
 </details>
 
-### Paginacja
-
-<details>
-
-* Wykorzystać paczkę `ng2-pagination` (http://michaelbromley.github.io/ng2-pagination/)
-* W `app.module.ts` zaimportować nowy moduł
-* Wykorzystać pipe `pagination` oraz komponent `<pagination-controls>`
-    w plikach:
-    + `video-list.component.html`
-    + `video-search.component.html`
-
-</details>
-
-### Refactoring detalu filmu
+### 7. Refactoring detalu filmu
 
 <details>
 
@@ -177,7 +142,7 @@
 
 </details>
 
-### Refactoring listy filmów
+### 8. Refactoring listy filmów
 
 <details>
 
@@ -190,11 +155,28 @@
 
 </details>
 
-### Opcjonalnie :zap:
+### 9. Paginacja
 
-* Stworzyć serwer zwracający dane fake-owe:
-    + `npm run build:mock`
-    + `npm run start:mock`
+<details>
+
+* Wykorzystać paczkę `ng2-pagination` (http://michaelbromley.github.io/ng2-pagination/)
+* W `app.module.ts` zaimportować nowy moduł
+* Wykorzystać pipe `pagination` oraz komponent `<pagination-controls>`
+    w plikach:
+    + `video-list.component.html`
+    + `video-search.component.html`
+
+</details>
+
+### (Opcjonalnie) 10. Serwer zwracający fake-owe dane
+
+<details>
+
+* Stworzyć dwa polecenia:
+    + `npm run build:mock` — polecenie powinno generować plik na podst. JSON Schema
+    + `npm run start:mock` — polecenie powinno uruchomić `json-server`
+
+</details>
 
 ## Mockowanie danych
 
