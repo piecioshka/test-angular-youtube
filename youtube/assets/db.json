@@ -1,0 +1,22 @@
+[
+    {
+        "id": "ilqu34tiu34ty324lhjtbwejhthjr",
+        "title": "Rocky",
+        "year": 1976,
+        "description": "Historia Rocky'ego Balboa, boksera-amatora, któremu nadarza się okazja stoczenia walki o tytuł mistrza świata wagi ciężkiej.",
+        "duration": 119,
+        "rate": 7.7,
+        "thumb_url": "https://ssl-gfx.filmweb.pl/po/91/90/9190/7530897.6.jpg",
+        "video_url": "https://www.youtube.com/embed/gEmsYmDbdqA"
+    },
+    {
+        "id": "98a7df98a7f98a7df987asdf897sa",
+        "title": "Terminator",
+        "year": 1974,
+        "description": "Elektroniczny morderca zostaje wysłany z przyszłości do roku 1984, by zabić matkę przyszłego lidera rewolucji. W ślad za nim rusza Kyle Reese, który ma chronić kobietę.",
+        "duration": 107,
+        "rate": 7.3,
+        "thumb_url": "https://ssl-gfx.filmweb.pl/po/09/95/995/7299005.6.jpg",
+        "video_url": "https://www.youtube.com/embed/FX4t1lLNl-o"
+    }
+]
