@@ -1,33 +1,19 @@
-<div id="page" class="row large-8 columns">
-  <header class="callout warning">
-    <h2>{{ title }}</h2>
-    <p>Aplikacja stworzona na potrzeby WarsawJS Workshop #4</p>
-  </header>
+<div id="page">
+    <header class="row">
+        <div class="col-7">
+            <h1 routerLink='/'>
+                {{ title }}
+            </h1>
+            <p class="page-lead">
+                {{ description }}
+            </p>
+        </div>
+        <div class="col-5">
+            <app-search-form
+                class="text-right"
+            ></app-search-form>
+        </div>
+    </header>
 
-  <div class="top-bar">
-    <nav>
-      <ul class="menu">
-        <li
-          routerLink="/"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">
-          <a>Strona główna</a>
-        </li>
-        <li
-          routerLink="/search"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">
-          <a>Wyszukiwarka</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-  <router-outlet></router-outlet>
-
-  <hr/>
-
-  <footer class="text-center">
-    <h6 class="subheader">Copyright @ 2017</h6>
-  </footer>
+    <router-outlet></router-outlet>
 </div>

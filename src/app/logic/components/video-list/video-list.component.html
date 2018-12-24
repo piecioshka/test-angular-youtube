@@ -1,0 +1,52 @@
+
+<p
+    *ngIf="!videos"
+    class="alert alert-info"
+    role="alert"
+>
+    Trwa pobieranie filmów...
+</p>
+
+<div
+    *ngIf="videos?.length === 0"
+    class="alert alert-warning"
+    role="alert"
+>
+    <h2>Ups...</h2>
+
+    <p>
+        Lista filmów jest pusta!
+    </p>
+</div>
+
+<div class="row">
+    <div
+        *ngIf="videos?.length > 0"
+        class="col-12 text-center"
+    >
+        <button
+            (click)="sortAscending()"
+            class="badge badge-warning small mr-1"
+        >
+            Alfabetycznie
+        </button>
+
+        <button
+            (click)="sortDescending()"
+            class="badge badge-info small"
+        >
+            Odwrotnie
+        </button>
+    </div>
+</div>
+
+<ul class="list-unstyled d-inline-flex flex-wrap">
+    <li
+        *ngFor="let video of videos"
+        class="m-1"
+    >
+        <app-video-list-item
+            [video]="video"
+        ></app-video-list-item>
+    </li>
+</ul>

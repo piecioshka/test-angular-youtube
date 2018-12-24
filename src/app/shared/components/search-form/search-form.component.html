@@ -1,0 +1,12 @@
+<div class="bg-primary text-white p-3">
+    <h3>
+        Wyszukiwarka
+    </h3>
+
+    <input
+        #phrase
+        (keyup.enter)="handleEnter(phrase.value)"
+        placeholder="Wpisz tytuł filmu i naciśnij ENTER"
+        autofocus
+    />
+</div>

@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "required": [
+        "videos"
+    ],
+    "properties": {
+        "videos": {
+            "type": "array",
+            "minItems": 50,
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "title",
+                    "description",
+                    "thumb_url",
+                    "video_url"
+                ],
+                "properties": {
+                    "id": {
+                        "chance": {
+                            "guid": {}
+                        }
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "chance": {
+                            "paragraph": {
+                                "sentences": 1
+                            }
+                        }
+                    },
+                    "thumb_url": "https://i.ytimg.com/vi/FR0UvfEIUnI/maxresdefault.jpg",
+                    "video_url": "https://www.youtube.com/embed/VxGtxQm5By0"
+                }
+            }
+        }
+    }
+}
