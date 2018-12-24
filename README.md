@@ -2,7 +2,11 @@
 
 :ledger: Aplikacja symulująca portal z filmami a'la YouTube.
 
-## Zakres funkcjonalności projektu
+## Demo 🎉
+
+<https://piecioshka.github.io/youtube/>
+
+## Features
 
 * [x] Zaprezentować listę miniaturek filmów wraz z tytułami i skróconym opisem
 * [x] Zaprezentować profil filmu: tytuł, poster oraz opis
