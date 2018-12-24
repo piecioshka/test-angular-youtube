@@ -18,7 +18,7 @@
 
 ![](./docs/scheme.png)
 
-## Krok po kroku
+## Krok po kroku 👣
 
 ### 1. Setup z Angular CLI
 
