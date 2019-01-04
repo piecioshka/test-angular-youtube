@@ -1,10 +1,10 @@
-# youtube
+# test-angular-youtube
 
-:ledger: Aplikacja symulująca portal z filmami a'la YouTube.
+:ledger: Testowa aplikacja oparta na Angular symulująca portal z filmami.
 
 ## Demo 🎉
 
-<https://piecioshka.github.io/youtube/>
+<https://piecioshka.github.io/test-angular-youtube/>
 
 ## Features
 
@@ -29,7 +29,7 @@
 <details>
 
 * `npm install -g @angular/cli`
-* `ng new NAZWA_PROJEKTU` # youtube
+* `ng new NAZWA_PROJEKTU`
 * Ustawić tytuł strony: `YouTube`
 * Ustawić opis strony: `Portal z filmami`
 * `npm start`

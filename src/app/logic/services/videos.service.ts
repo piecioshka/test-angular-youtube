@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { VideoInterface } from '../interfaces/video.interface';
 import { delay } from '../../shared/helpers/delay';
 
-const endpoint = '/assets/db.json';
-// const endpoint = '/assets/videos.json';
-// const endpoint = 'http://localhost:2095/videos/';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +11,10 @@ const endpoint = '/assets/db.json';
 export class VideosService {
 
     async fetchVideos(): Promise<Array<VideoInterface>> {
+
+        console.log({ environment });
+
+        const endpoint = `${environment.backendURL}assets/db.json`;
         const response = await window.fetch(endpoint);
         try {
             const videos = await response.json();

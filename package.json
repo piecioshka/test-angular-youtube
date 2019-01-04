@@ -1,19 +1,19 @@
 {
     "private": true,
-    "name": "youtube",
+    "name": "test-angular-youtube",
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "ng build --base-href /youtube/",
+        "build": "ng build --base-href /test-angular-youtube/",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "clear": "rm -rf dist/",
         "clear:all": "rm -rf node_modules/ && npm run clear",
         "predeploy": "npm run build",
-        "deploy": "cross-env NODE_DEBUG=gh-pages gh-pages -d dist/youtube/",
+        "deploy": "cross-env NODE_DEBUG=gh-pages gh-pages -d dist/test-angular-youtube/",
         "build:mock": "node data/build-database.js",
         "start:mock": "node data/start-database.js"
     },
