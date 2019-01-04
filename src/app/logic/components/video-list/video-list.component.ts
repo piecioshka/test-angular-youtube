@@ -9,6 +9,8 @@ import { VideoInterface } from '../../interfaces/video.interface';
 })
 export class VideoListComponent {
 
+    public page = 1;
+
     @Input() videos: Array<VideoInterface> = null;
 
     public sortAscending() {

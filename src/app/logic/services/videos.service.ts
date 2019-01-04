@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 export class VideosService {
 
     async fetchVideos(): Promise<Array<VideoInterface>> {
-        const endpoint = `${environment.backendURL}assets/db.json`;
+        const endpoint = environment.backendURL;
         const response = await window.fetch(endpoint);
 
         try {

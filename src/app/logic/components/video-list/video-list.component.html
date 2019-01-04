@@ -42,7 +42,7 @@
 
 <ul class="list-unstyled d-inline-flex flex-wrap">
     <li
-        *ngFor="let video of videos"
+        *ngFor="let video of videos | paginate: { itemsPerPage: 3, currentPage: page }"
         class="m-1"
     >
         <app-video-list-item
@@ -50,3 +50,7 @@
         ></app-video-list-item>
     </li>
 </ul>
+
+<pagination-controls
+    (pageChange)="page = $event"
+></pagination-controls>

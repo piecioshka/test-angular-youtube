@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    backendURL: 'https://test-angular-youtube.herokuapp.com/'
+    backendURL: 'https://test-angular-youtube.herokuapp.com/assets/db.json'
 };

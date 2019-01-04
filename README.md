@@ -20,11 +20,12 @@
     + development
     + production
     + staging
+* :white_check_mark: Narysować diagram z architekturą
+* :white_check_mark: Mechanizm paginacji (`ngx-pagination`)
+* :no_entry: Routing Lazy Loading
 * :no_entry: Poprawić testy jednostkowe
 * :no_entry: Dopisać testy end-to-end
-* :no_entry: Mechanizm paginacji
 * :no_entry: Server-side rendering
-* :no_entry: Routing Lazy Loading
 
 ![](./docs/scheme.png)
 
@@ -46,47 +47,11 @@
 
 <details>
 
-* `ng generate component video-list`
-* app.component.html -> (HTML) `<app-video-list></app-video-list>`
-* `ng generate service videos`
-* Przenieść `videos.service` do katalogu `src/app/logic`
-* `VideosService` -> `fetchVideos`
-    + Wygenerować dane testowe
-* Wyświetlić listę filmów
-* Stworzyć plik z mockiem do filmów
-* Dodać style
-
 </details>
 
 ### 3. Strona z profilem filmu
 
 <details>
-
-* `ng generate component video-profile`
-* Przenieść markup filmu do `video-profile.component.html`
-* W `video-list.component.html` dodać `<app-video-item>`
-* Wstrzyknąć dane
-    + `<app-video-list-item [video]="video"></app-video-list-item>`
-    + W `video-list-item.component.ts` zdefiniować `@Input()`
-* Przenieść definicję wyglądu `<video>` do `video.component.css`
-* Stworzyć `video.model` i użyć w:
-    + `video.component.ts`
-    + `video-list.component.ts`
-    + `videos.service.ts`
-* `ng generate module app-routing`
-* W `app.module.ts` dodać `AppRoutingModule`
-* W `app-routing.module.ts` zmienić `CommonModule` na `RouterModule`
-* W `app-routing.module.ts` stworzyć `routes: Routes` (path, component)
-    + `` - VideoListComponent
-    + `video/:id` - VideoProfileComponent
-* W `app.component` dodać `<router-outlet>`
-* W `video-list.component.html` przerobić na listę miniaturek z linkami
-    + `<a routerLink="videos/{{ video.id }}">`
-* Zaktualizować style
-* W `video.component.ts`:
-    + usunąć dekorator `@Input()` z pola `video`
-    + pobierać parametr `id` z `ActivatedRoute` (rxjs)
-    + pobierać obiekt video `VideosService`
 
 </details>
 
@@ -94,33 +59,11 @@
 
 <details>
 
-* W `video.component.html` dodać zabezpieczenie przed brakiem obiektu `video`
-* `ng generate component video-not-found`
-* W `app-routing.module.ts` dodać nową ścieżkę: `video-not-found`
-    (PageVideoNotFoundComponent).
-* W `video.component.ts` dodać sprawdzenie, czy VideosService zwrócił
-    "falsy value", wtedy przekierować na stronę z komponentem
-    `PageVideoNotFoundComponent` za pomocą `Router`a
-
 </details>
 
 ### 5. Wyszukiwarka (panel oraz strona)
 
 <details>
-
-* `ng generate component video-search`
-* W `app-routing.module.ts` dodać nową ścieżkę: `search`
-    (PageVideoSearchComponent)
-* W `app.component.html` stworzyć menu z linkiem do wyszukiwarki
-* W `videos.service.ts` stworzyć funkcję, która będzie filtrowała filmy
-    (wykorzystać już istniejącą funkcją `getVideos`)
-* Dodać style dla wyszukiwarki wykorzystując dwa już istniejące:
-    + `video.component.css`
-    + `video-list.component.css`
-* W `video-search.component.html` stworzyć pole (input), gdzie użytkownik
-    będzie wpisywał tytuł filmu.
-* W `video-search.component.ts` stworzyć funkcję `search`, która będzie
-    uruchamiana po naciśnięciu "ENTER" przez użytkownika.
 
 </details>
 
@@ -128,27 +71,11 @@
 
 <details>
 
-* `ng generate service sorting`
-* Przenieść `sorting.service` do katalogu `src/app/video-list`
-* Dodać linki, do sortowanie ASC i DESC w plikach
-    + `video-search.component.html`
-    + `video-list.component.html`
-* Dodać funkcje sortujące: `sortAscending`, `sortDescending` w plikach:
-    + `video-search.component.ts`
-    + `video-list.component.ts`
-* W `sorting.service.ts` stworzyć funkcje: `ascending`, `descending`
-* W funkcjach `sortAscending`, `sortDescending` wykorzystać ww funkcje.
-
 </details>
 
 ### 7. Refactoring detalu filmu
 
 <details>
-
-* `ng generate component video-detail`
-* Wycięcie detali filmu na rzecz `<app-video-detail>` z plików:
-    + `video-search.component.html`
-    + `video-list.component.html`
 
 </details>
 
@@ -156,25 +83,18 @@
 
 <details>
 
-* `ng generate component videos-list`
-* Zastąpienie obecnego użycia komponentu `video-list.component` nowo
-    stworzonym.
-* Wykorzystanie komponentu `video-list.component` w plikach
-    + `video-search.component.html`
-    + `videos-list.component.html`
-
 </details>
 
 ### 9. Paginacja
 
 <details>
 
-* Wykorzystać paczkę `ng2-pagination` (http://michaelbromley.github.io/ng2-pagination/)
-* W `app.module.ts` zaimportować nowy moduł
-* Wykorzystać pipe `pagination` oraz komponent `<pagination-controls>`
-    w plikach:
-    + `video-list.component.html`
-    + `video-search.component.html`
+* Dodać paczkę [ngx-pagination](https://github.com/michaelbromley/ngx-pagination)
+* Zaimportować do komponentu z logiką moduł `NgxPaginationModule`
+* Osadzić komponent `pagination-controls` w komponencie listy
+    + dodać binding input `(pageChange)="page = $event"`
+    + przefiltrować kolekcję prezentowanych elementów
+        `| paginate: { itemsPerPage: 10, currentPage: page }`
 
 </details>
 
