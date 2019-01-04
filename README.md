@@ -4,7 +4,9 @@
 
 ## Demo 🎉
 
-<https://piecioshka.github.io/test-angular-youtube/>
+* production: <https://piecioshka.github.io/test-angular-youtube/>
+* staging: <https://test-angular-youtube.herokuapp.com/>
+* development: <http://localhost:4200/>
 
 ## Features
 
