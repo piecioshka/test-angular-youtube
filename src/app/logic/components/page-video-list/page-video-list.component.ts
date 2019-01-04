@@ -10,7 +10,7 @@ import { VideoInterface } from '../../interfaces/video.interface';
 })
 export class PageVideoListComponent implements OnInit {
 
-    private videos: Array<VideoInterface> = null;
+    public videos: Array<VideoInterface> = null;
 
     constructor(
         public videosService: VideosService
