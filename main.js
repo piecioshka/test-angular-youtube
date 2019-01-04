@@ -830,21 +830,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_helpers_delay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/helpers/delay */ "./src/app/shared/helpers/delay.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
 
 
 
-var endpoint = '/assets/db.json';
-// const endpoint = '/assets/videos.json';
-// const endpoint = 'http://localhost:2095/videos/';
+
 var VideosService = /** @class */ (function () {
     function VideosService() {
     }
     VideosService.prototype.fetchVideos = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var response, videos, err_1;
+            var endpoint, response, videos, err_1;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, window.fetch(endpoint)];
+                    case 0:
+                        console.log({ environment: _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"] });
+                        endpoint = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].backendURL + "assets/db.json";
+                        return [4 /*yield*/, window.fetch(endpoint)];
                     case 1:
                         response = _a.sent();
                         _a.label = 2;
@@ -1115,9 +1117,10 @@ __webpack_require__.r(__webpack_exports__);
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The list of which env maps to which file can be found in `angular.json`.
 var environment = {
-    production: false
+    production: false,
+    backendURL: 'http://localhost:4200/'
 };
 
 
@@ -1156,7 +1159,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/piecioshka/projects/youtube/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/piecioshka/projects/test-angular-youtube/src/main.ts */"./src/main.ts");
 
 
 /***/ })
