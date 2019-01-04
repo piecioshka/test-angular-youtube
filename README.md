@@ -14,6 +14,10 @@
 * :white_check_mark: Wyszukać film po tytule
 * :white_check_mark: Ustawić autofocus na polu wyszukiwania
 * :white_check_mark: Udostępnić możliwość sortowania listy filmów
+* :white_check_mark: Zdefiniować 3 konfiguracje z innymi URLami do backendu:
+    + development
+    + production
+    + staging
 * :no_entry: Poprawić testy jednostkowe
 * :no_entry: Dopisać testy end-to-end
 * :no_entry: Mechanizm paginacji

@@ -6,7 +6,9 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
+        "start:staging": "http-server dist/test-angular-youtube/ -d false -g",
         "build": "ng build --base-href /test-angular-youtube/",
+        "build:staging": "ng build --configuration=staging",
         "build:production": "npm run build -- --prod",
         "test": "ng test",
         "lint": "ng lint",
@@ -15,6 +17,8 @@
         "clear:all": "rm -rf node_modules/ && npm run clear",
         "predeploy": "npm run build:production",
         "deploy": "cross-env NODE_DEBUG=gh-pages gh-pages -d dist/test-angular-youtube/",
+        "heroku-postbuild": "npm run build:staging",
+        "deploy:staging": "git push heroku master -f",
         "build:mock": "node data/build-database.js",
         "start:mock": "node data/start-database.js"
     },
@@ -28,6 +32,7 @@
         "@angular/platform-browser-dynamic": "^7.1.4",
         "@angular/router": "^7.1.4",
         "core-js": "^2.6.1",
+        "http-server": "^0.11.1",
         "rxjs": "^6.3.3",
         "tslib": "^1.9.3",
         "zone.js": "^0.8.26"
