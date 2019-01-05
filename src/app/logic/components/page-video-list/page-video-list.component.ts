@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { VideosService } from '../../services/videos.service';
-import { VideoInterface } from '../../interfaces/video.interface';
+import { VideoListInterface } from '../../interfaces/video-list.interface';
 
 @Component({
     selector: 'app-page-video-list',
@@ -10,7 +10,7 @@ import { VideoInterface } from '../../interfaces/video.interface';
 })
 export class PageVideoListComponent implements OnInit {
 
-    public videos: Array<VideoInterface> = null;
+    public videos: VideoListInterface = null;
 
     constructor(
         public videosService: VideosService
@@ -22,7 +22,7 @@ export class PageVideoListComponent implements OnInit {
 
     private setupVideos() {
         this.videosService.fetchVideos()
-            .then((videos: Array<VideoInterface>) => {
+            .subscribe((videos: VideoListInterface) => {
                 this.videos = videos;
             });
     }

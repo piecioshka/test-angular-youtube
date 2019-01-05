@@ -2,7 +2,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { VideosService } from '../../services/videos.service';
-import { VideoInterface } from '../../interfaces/video.interface';
+import { VideoListInterface } from '../../interfaces/video-list.interface';
 
 @Component({
     selector: 'app-page-video-search',
@@ -11,7 +11,7 @@ import { VideoInterface } from '../../interfaces/video.interface';
 })
 export class PageVideoSearchComponent implements OnInit {
 
-    public videos: Array<VideoInterface> = null;
+    public videos: VideoListInterface = null;
 
     constructor(
         private activatedRoute: ActivatedRoute,

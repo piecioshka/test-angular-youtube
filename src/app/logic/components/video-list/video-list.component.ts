@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { VideoInterface } from '../../interfaces/video.interface';
+import { VideoListInterface } from '../../interfaces/video-list.interface';
 
 @Component({
     selector: 'app-video-list',
@@ -11,7 +12,7 @@ export class VideoListComponent {
 
     public page = 1;
 
-    @Input() videos: Array<VideoInterface> = null;
+    @Input() videos: VideoListInterface = null;
 
     public sortAscending() {
         this.videos = this.videos.sort(this.ascending);
