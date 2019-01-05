@@ -170,7 +170,7 @@
     "server": {
         "builder": "@angular-devkit/build-angular:server",
         "options": {
-            "outputPath": "dist/test-angular-youtube-server",
+            "outputPath": "dist/server",
             "main": "src/main.server.ts",
             "tsConfig": "src/tsconfig.server.json"
         }
