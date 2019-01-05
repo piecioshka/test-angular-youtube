@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { VideoListItemComponent } from './video-list-item.component';
+import { LogicModule } from '../../logic.module';
 
 describe('VideoListItemComponent', () => {
     let component: VideoListItemComponent;
@@ -8,7 +10,7 @@ describe('VideoListItemComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [VideoListItemComponent]
+            imports: [RouterTestingModule, LogicModule]
         })
             .compileComponents();
     }));

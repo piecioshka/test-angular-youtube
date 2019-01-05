@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageVideoListComponent } from './page-video-list.component';
+import { SharedModule } from '../../../shared/shared.module';
+import { LogicModule } from '../../logic.module';
 
 describe('PageVideoListComponent', () => {
     let component: PageVideoListComponent;
@@ -8,7 +10,7 @@ describe('PageVideoListComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [PageVideoListComponent]
+            imports: [SharedModule, LogicModule]
         })
             .compileComponents();
     }));

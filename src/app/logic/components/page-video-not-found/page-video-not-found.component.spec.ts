@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageVideoNotFoundComponent } from './page-video-not-found.component';
+import { SharedModule } from '../../../shared/shared.module';
 
 describe('PageVideoNotFoundComponent', () => {
     let component: PageVideoNotFoundComponent;
@@ -8,9 +9,9 @@ describe('PageVideoNotFoundComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
+            imports: [SharedModule],
             declarations: [PageVideoNotFoundComponent]
-        })
-            .compileComponents();
+        }).compileComponents();
     }));
 
     beforeEach(() => {

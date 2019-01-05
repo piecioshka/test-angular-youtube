@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { VideoListComponent } from './video-list.component';
+import { LogicModule } from '../../logic.module';
 
 describe('VideoListComponent', () => {
     let component: VideoListComponent;
@@ -8,7 +10,7 @@ describe('VideoListComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [VideoListComponent]
+            imports: [NgxPaginationModule, LogicModule],
         })
             .compileComponents();
     }));

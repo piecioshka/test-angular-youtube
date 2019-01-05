@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PageVideoSearchComponent } from './page-video-search.component';
+import { LogicModule } from '../../logic.module';
 
 describe('PageVideoSearchComponent', () => {
     let component: PageVideoSearchComponent;
@@ -8,7 +10,7 @@ describe('PageVideoSearchComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [PageVideoSearchComponent]
+            imports: [RouterTestingModule, LogicModule]
         })
             .compileComponents();
     }));
