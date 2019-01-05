@@ -37,7 +37,7 @@
 * :white_check_mark: Narysować diagram z architekturą
 * :white_check_mark: Zmienić strategię URLi na `HashLocationStrategy`
 * :white_check_mark: Routing Lazy Loading (strona z autorami)
-* :no_entry: Server-side rendering
+* :white_check_mark: Server-side rendering
 
 ![](./docs/scheme.png)
 
@@ -143,7 +143,49 @@
 
 </details>
 
-### 11. [Bonus] Server-side rendering
+### 11. [Bonus] Server-side rendering ([Angular Universal](https://angular.io/guide/universal))
 
 <details>
+
+* `app-routing.module.ts`: Wyłączyć strategię URLi (zakomentować `useHash`)
+* Zainstaluj `npm install --save @angular/platform-server @nguniversal/module-map-ngfactory-loader ts-loader`
+* `app.module.ts`: Użyj funkcji `BrowserModule.withServerTransition({ appId: 'test-angular-youtube' }),`
+* `ng g module AppServer`
+* `app.server.module.ts`:
+    + Dodaj do tablicy `imports`:
+        - `AppModule`
+        - `ServerModule`
+        - `ModuleMapLoaderModule`
+    + Dodaj do tablicy `bootstrap`:
+        - `AppComponent`
+* `main.module.ts`: Weksportuj `AppServerModule`
+* Skopiuj `tsconfig.app.json` do `tsconfig.server.json`
+* `tsconfig.server.json`
+    + `compilerOptions`
+        `"module": "commonjs"`
+    + `angularCompilerOptions`
+        `"entryModule": "app/app.server.module#AppServerModule"`
+* `angular.json`: dodać w sekcji `architect`
+    ```json
+    "server": {
+        "builder": "@angular-devkit/build-angular:server",
+        "options": {
+            "outputPath": "dist/test-angular-youtube-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+        }
+    }
+    ```
+* Stwórz `server.ts` w katalogu głównym o treści takiej jak ost. listing
+    w punkcie 4. https://angular.io/guide/universal#step-4-set-up-a-server-to-run-universal-bundles
+* Stwórz `webpack.server.config.js` w katalogu głównym o treści jak w punkcie 5.
+    https://angular.io/guide/universal#step-5-pack-and-run-the-app-on-the-server
+* Dodać zadanie do `package.json` takie, które są zdefiniowane w:
+    https://angular.io/guide/universal#creating-scripts
+* `angular.json`:
+    + Zmienić `projects/test-angular-youtube/architect/build/options/outputPath` na `dist/browser`
+    + Zmienić `projects/test-angular-youtube/architect/server/options/outputPath` na `dist/server`
+* `server.ts`: Zmienić `main.bundle` na `main` w okolicach 25 linijki
+* Uruchom `npm run build:ssr && npm run serve:ssr`
+
 </details>

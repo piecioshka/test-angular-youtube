@@ -10,9 +10,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes, {
-            useHash: true // when SSR is disabled
-        })
+        RouterModule.forRoot(routes)
     ],
     exports: [
         RouterModule
