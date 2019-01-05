@@ -132,6 +132,11 @@
 
 <details>
 
+* Wykorzystaj źródła, aby zapoznać się z tworzeniem fake-owych danych
+    + http://json-schema-faker.js.org/ - narzędzie, które buduje losowe dane w JSON
+    + http://json-schema.org - specyfikacja budowania
+    + https://chancejs.com/ - biblioteka zwraca losowe dane w odpowiednim formacie
+    + https://github.com/marak/Faker.js/ - budowanie wielu losowych danych
 * Stworzyć dwa polecenia:
     + `npm run build:mock` — polecenie powinno generować plik na podst. JSON Schema
     + `npm run start:mock` — polecenie powinno uruchomić `json-server`
@@ -142,10 +147,3 @@
 
 <details>
 </details>
-
-## Mockowanie danych
-
-* http://json-schema-faker.js.org/ - narzędzie, które buduje losowe dane w JSON
-* http://json-schema.org - specyfikacja budowania
-* https://chancejs.com/ - biblioteka zwraca losowe dane w odpowiednim formacie
-* https://github.com/marak/Faker.js/ - budowanie wielu losowych danych
