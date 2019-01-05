@@ -11,20 +11,32 @@
 ## Features
 
 * :white_check_mark: Zaprezentować listę miniaturek filmów wraz z tytułami i skróconym opisem
+    + [ ] TJ: Spr. czy gdy tablica jest równa 2 to liczba wyrenderowanych filmów równa jest 2
+    + [ ] TJ: Spr. czy gdy tablica jest pusta, to lista filmów wyświetla fallback tekst
+    + [ ] TE: Spr. czy po kliknięciu w film, użytkownik zostanie przeniesiony na profil filmu
+* :white_check_mark: Pobierać listę filmów z serwera (`HttpClientModule`)
+    + [ ] TJ: Spr. czy jest realizowany request po wyrenderowaniu komponentu
 * :white_check_mark: Zaprezentować profil filmu: tytuł, poster oraz opis
+    + [ ] TJ: Spr. czy są renderowane dane, które przekazujemy do komponentu
 * :white_check_mark: Dodać zabezpieczenie przed wyświetleniem filmu, którego nie ma w bazie
+    + [ ] TE: Spr. czy kiedy podamy nieznany ID filmu, to czy zostaniemy przekierowani na stronę 404
 * :white_check_mark: Wyszukać film po tytule
+    + [ ] TE: Spr. czy kiedy podamy nieznaną nazwę filmu, to czy wyświetli się komunikat z brakiem znalezionych filmów
+    + [ ] TE: Spr. czy po wpisaniu nazwy istniejącgo filmu, to czy zostanie on wyświetlony na liście z filmami
 * :white_check_mark: Ustawić autofocus na polu wyszukiwania
+    + [ ] TE: Spr. czy po wejściu do aplikacji jest od razu ustawiony focus
 * :white_check_mark: Udostępnić możliwość sortowania listy filmów
+    + [ ] TE: Spr. czy istnieją przyciski do sortowania
+    + [ ] TJ: Spr. czy po kliknięciu w przyciski kolejność wyświetlanych elementów się zmienia
+* :white_check_mark: Mechanizm paginacji (`ngx-pagination`)
+    + [ ] TE: Spr. czy po wejściu na drugą stronę zmienia się lista filmów
 * :white_check_mark: Zdefiniować 3 konfiguracje z innymi URLami do backendu:
     + development
     + production
     + staging
 * :white_check_mark: Narysować diagram z architekturą
-* :white_check_mark: Mechanizm paginacji (`ngx-pagination`)
+* :white_check_mark: Zmienić strategię URLi na `HashLocationStrategy`
 * :no_entry: Routing Lazy Loading
-* :no_entry: Poprawić testy jednostkowe
-* :no_entry: Dopisać testy end-to-end
 * :no_entry: Server-side rendering
 
 ![](./docs/scheme.png)
@@ -49,43 +61,37 @@
 
 </details>
 
-### 3. Strona z profilem filmu
+### 3. Pobieranie dane z serwera (`HttpClientModule`)
 
 <details>
 
 </details>
 
-### 4. Zabezpieczenie przed nieznanym identyfikatorem filmu
+### 4. Strona z profilem filmu (routing)
 
 <details>
 
 </details>
 
-### 5. Wyszukiwarka (panel oraz strona)
+### 5. [Bonus] Zabezpieczenie przed nieznanym identyfikatorem filmu
 
 <details>
 
 </details>
 
-### 6. Sortowanie listy filmów
+### 6. Wyszukiwarka (panel oraz strona)
 
 <details>
 
 </details>
 
-### 7. Refactoring detalu filmu
+### 7. Sortowanie listy filmów
 
 <details>
 
 </details>
 
-### 8. Refactoring listy filmów
-
-<details>
-
-</details>
-
-### 9. Paginacja
+### 8. Paginacja (`ngx-pagination`)
 
 <details>
 
@@ -98,7 +104,9 @@
 
 </details>
 
-### (Opcjonalnie) 10. Serwer zwracający fake-owe dane
+### 9. [Bonus] Lazy loading
+
+### 10. [Bonus] Serwer zwracający fake-owe dane
 
 <details>
 
@@ -106,6 +114,11 @@
     + `npm run build:mock` — polecenie powinno generować plik na podst. JSON Schema
     + `npm run start:mock` — polecenie powinno uruchomić `json-server`
 
+</details>
+
+### 11. [Bonus] Server-side rendering
+
+<details>
 </details>
 
 ## Mockowanie danych
