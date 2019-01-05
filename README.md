@@ -36,7 +36,7 @@
     + staging
 * :white_check_mark: Narysować diagram z architekturą
 * :white_check_mark: Zmienić strategię URLi na `HashLocationStrategy`
-* :no_entry: Routing Lazy Loading
+* :white_check_mark: Routing Lazy Loading (strona z autorami)
 * :no_entry: Server-side rendering
 
 ![](./docs/scheme.png)
@@ -105,6 +105,28 @@
 </details>
 
 ### 9. [Bonus] Lazy loading
+
+<details>
+
+* Stworzyć nowy moduł: `ng g module static --routing`
+* Stworzyć nowy komponent: `ng g component static/author-list --module static`
+* `app.component.html`: Dodać link do `/authors` w stopce
+* `app-routing.module.ts`: Stworzyć nowy route:
+    ```js
+    {
+        path: 'authors',
+        loadChildren: './static/static.module#StaticModule'
+    }
+    ```
+* `static/static-routing.module.ts`: Stworzyć nowy route:
+    ```js
+    {
+        path: '',
+        component: AuthorListComponent
+    }
+    ```
+
+</details>
 
 ### 10. [Bonus] Serwer zwracający fake-owe dane
 
