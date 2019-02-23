@@ -40,16 +40,18 @@
     </div>
 </div>
 
-<ul class="list-unstyled d-inline-flex flex-wrap">
-    <li
-        *ngFor="let video of videos | paginate: { itemsPerPage: 3, currentPage: page }"
-        class="m-1"
-    >
-        <app-video-list-item
-            [video]="video"
-        ></app-video-list-item>
-    </li>
-</ul>
+<div id="video-list">
+    <ul class="list-unstyled d-inline-flex flex-wrap">
+        <li
+            *ngFor="let video of videos | paginate: { itemsPerPage: 3, currentPage: page }"
+            class="m-1"
+        >
+            <app-video-list-item
+                [video]="video"
+            ></app-video-list-item>
+        </li>
+    </ul>
+</div>
 
 <div class="text-center">
     <pagination-controls

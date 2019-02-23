@@ -3,6 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { VideoProfileComponent } from './video-profile.component';
 import { LogicModule } from '../../logic.module';
+import { VideosService } from '../../services/videos.service';
+import { FakeVideosService } from '../../services/videos.service.fake';
 
 describe('VideoProfileComponent', () => {
     let component: VideoProfileComponent;
@@ -11,6 +13,9 @@ describe('VideoProfileComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [LogicModule, RouterTestingModule],
+            providers: [
+                { provide: VideosService, useClass: FakeVideosService }
+            ]
         })
             .compileComponents();
     }));

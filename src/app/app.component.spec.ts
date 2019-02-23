@@ -9,7 +9,8 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             imports: [RouterTestingModule, SharedModule],
             declarations: [AppComponent],
-        }).compileComponents();
+        })
+            .compileComponents();
     }));
 
     it('should create the app', async(() => {

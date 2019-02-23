@@ -10,9 +10,14 @@
 
 ## Features
 
+* :white_check_mark: Stworzenie komponentu z breadcrumbem (menu horyzontalne)
+* :white_check_mark: Stworzenie komponentu z listą miniaturek (carousel)
+* :no_entry: Zasilanie komponentu danymi od komponentu-rodzica — `@Input`
+* :no_entry: Pobieranie informacji z komponentu-dziecka — `@Output`
 * :white_check_mark: Zaprezentować listę miniaturek filmów wraz z tytułami i skróconym opisem
-    + [ ] TJ: Spr. czy gdy tablica jest równa 2 to liczba wyrenderowanych filmów równa jest 2
-    + [ ] TJ: Spr. czy gdy tablica jest pusta, to lista filmów wyświetla fallback tekst
+    + [x] TJ: Spr. czy gdy tablica jest pusta, to lista filmów jest pusta
+    + [x] TJ: Spr. czy gdy tablica jest pusta, to lista filmów wyświetla fallback tekst
+    + [x] TJ: Spr. czy gdy tablica jest równa 3 to liczba wyrenderowanych filmów równa jest 3
     + [ ] TE: Spr. czy po kliknięciu w film, użytkownik zostanie przeniesiony na profil filmu
 * :white_check_mark: Pobierać listę filmów z serwera (`HttpClientModule`)
     + [ ] TJ: Spr. czy jest realizowany request po wyrenderowaniu komponentu
@@ -182,9 +187,9 @@
     https://angular.io/guide/universal#step-5-pack-and-run-the-app-on-the-server
 * Dodać zadanie do `package.json` takie, które są zdefiniowane w:
     https://angular.io/guide/universal#creating-scripts
-* `angular.json`:
-    + Zmienić `projects/test-angular-youtube/architect/build/options/outputPath` na `dist/browser`
-    + Zmienić `projects/test-angular-youtube/architect/server/options/outputPath` na `dist/server`
+* `angular.json`: Zamienić:
+    + `projects/test-angular-youtube/architect/build/options/outputPath` na `dist/browser`
+    + `projects/test-angular-youtube/architect/server/options/outputPath` na `dist/server`
 * `server.ts`: Zmienić `main.bundle` na `main` w okolicach 25 linijki
 * Uruchom `npm run build:ssr && npm run serve:ssr`
 

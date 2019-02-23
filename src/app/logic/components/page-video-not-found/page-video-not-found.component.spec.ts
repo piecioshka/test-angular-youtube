@@ -11,7 +11,8 @@ describe('PageVideoNotFoundComponent', () => {
         TestBed.configureTestingModule({
             imports: [SharedModule],
             declarations: [PageVideoNotFoundComponent]
-        }).compileComponents();
+        })
+            .compileComponents();
     }));
 
     beforeEach(() => {
