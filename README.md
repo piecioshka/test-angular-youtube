@@ -4,9 +4,23 @@
 
 ## Demo 🎉
 
-* production: <https://piecioshka.github.io/test-angular-youtube/>
-* staging: <https://test-angular-youtube.herokuapp.com/>
-* development: <http://localhost:4200/>
+* Production: <https://test-angular-youtube.herokuapp.com/>
+
+    ```bash
+    npm run deploy:heroku
+    ```
+
+* Staging: <https://piecioshka.github.io/test-angular-youtube/>
+
+    ```bash
+    npm run deploy:github
+    ```
+
+* Development: <http://localhost:4200/>
+
+    ```bash
+    npm start
+    ```
 
 ## Features
 
@@ -104,7 +118,7 @@
 
 </details>
 
-### 2. Strona z listą filmów
+### 3. Strona z listą filmów
 
 <details>
 
@@ -164,37 +178,37 @@
 
 </details>
 
-### 3. Pobieranie dane z serwera (`HttpClientModule`)
+### 4. Pobieranie dane z serwera (`HttpClientModule`)
 
 <details>
 
 </details>
 
-### 4. Strona z profilem filmu (routing)
+### 5. Strona z profilem filmu (routing)
 
 <details>
 
 </details>
 
-### 5. [Bonus] Zabezpieczenie przed nieznanym identyfikatorem filmu
+### 6. [Bonus] Zabezpieczenie przed nieznanym identyfikatorem filmu
 
 <details>
 
 </details>
 
-### 6. Wyszukiwarka (panel oraz strona)
+### 7. Wyszukiwarka (panel oraz strona)
 
 <details>
 
 </details>
 
-### 7. Sortowanie listy filmów
+### 8. Sortowanie listy filmów
 
 <details>
 
 </details>
 
-### 8. Paginacja (`ngx-pagination`)
+### 9. Paginacja (`ngx-pagination`)
 
 <details>
 
@@ -207,7 +221,7 @@
 
 </details>
 
-## Deployment — GitHub
+### 10. Deployment — GitHub
 
 <details>
 
@@ -220,7 +234,7 @@
 
 </details>
 
-### 9. [Bonus] Lazy loading
+### 11. [Bonus] Lazy loading
 
 <details>
 
@@ -247,7 +261,7 @@
 
 </details>
 
-### 10. [Bonus] Serwer zwracający fake-owe dane
+### 12. [Bonus] Serwer zwracający fake-owe dane
 
 <details>
 
@@ -262,7 +276,7 @@
 
 </details>
 
-### 11. [Bonus] Server-side rendering ([Angular Universal](https://angular.io/guide/universal))
+### 13. [Bonus] Server-side rendering ([Angular Universal](https://angular.io/guide/universal))
 
 <details>
 
@@ -308,5 +322,11 @@
     + `projects/test-angular-youtube/architect/server/options/outputPath` na `dist/server`
 * `server.ts`: Zmienić `main.bundle` na `main` w okolicach 25 linijki
 * Uruchom `npm run build:ssr && npm run serve:ssr`
+
+</details>
+
+### 14. Deployment — Heroku
+
+<details>
 
 </details>
