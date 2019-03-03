@@ -100,6 +100,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_menu_menu_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/menu/menu.component */ "./src/app/core/components/menu/menu.component.ts");
 /* harmony import */ var _components_movie_list_movie_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/movie-list/movie-list.component */ "./src/app/core/components/movie-list/movie-list.component.ts");
 /* harmony import */ var _components_movie_list_item_movie_list_item_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/movie-list-item/movie-list-item.component */ "./src/app/core/components/movie-list-item/movie-list-item.component.ts");
+/* harmony import */ var _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./pages/page-not-found/page-not-found.component */ "./src/app/core/pages/page-not-found/page-not-found.component.ts");
+/* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/footer/footer.component */ "./src/app/core/components/footer/footer.component.ts");
+/* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/header/header.component */ "./src/app/core/components/header/header.component.ts");
+
+
+
 
 
 
@@ -143,7 +149,10 @@ var AppModule = /** @class */ (function () {
                 _components_user_menu_user_menu_component__WEBPACK_IMPORTED_MODULE_19__["UserMenuComponent"],
                 _components_menu_menu_component__WEBPACK_IMPORTED_MODULE_20__["MenuComponent"],
                 _components_movie_list_movie_list_component__WEBPACK_IMPORTED_MODULE_21__["MovieListComponent"],
-                _components_movie_list_item_movie_list_item_component__WEBPACK_IMPORTED_MODULE_22__["MovieListItemComponent"]
+                _components_movie_list_item_movie_list_item_component__WEBPACK_IMPORTED_MODULE_22__["MovieListItemComponent"],
+                _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_23__["PageNotFoundComponent"],
+                _components_header_header_component__WEBPACK_IMPORTED_MODULE_25__["HeaderComponent"],
+                _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_24__["FooterComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"].withServerTransition({ appId: 'test-angular-youtube' }),
@@ -186,6 +195,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_page_user_registration_page_user_registration_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/page-user-registration/page-user-registration.component */ "./src/app/core/pages/page-user-registration/page-user-registration.component.ts");
 /* harmony import */ var _pages_page_user_login_page_user_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/page-user-login/page-user-login.component */ "./src/app/core/pages/page-user-login/page-user-login.component.ts");
 /* harmony import */ var _pages_page_user_logout_page_user_logout_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/page-user-logout/page-user-logout.component */ "./src/app/core/pages/page-user-logout/page-user-logout.component.ts");
+/* harmony import */ var _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/page-not-found/page-not-found.component */ "./src/app/core/pages/page-not-found/page-not-found.component.ts");
+
 
 
 
@@ -258,7 +269,11 @@ var routes = [
             }
         ],
         canActivate: [src_app_core_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
-    }
+    },
+    {
+        path: '**',
+        component: _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_11__["PageNotFoundComponent"]
+    },
 ];
 
 
@@ -282,7 +297,7 @@ module.exports = ":host {\n    display: block;\n    width: 960px;\n    margin: 0
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"page\">\n    <app-user-menu></app-user-menu>\n\n    <header class=\"row\">\n        <div class=\"col-7\">\n            <h1 routerLink='/'>\n                {{ title }}\n            </h1>\n            <p class=\"page-lead\">\n                {{ description }}\n            </p>\n        </div>\n        <div class=\"col-5\">\n            <app-search-form\n                class=\"text-right\"\n            ></app-search-form>\n        </div>\n    </header>\n\n    <app-menu></app-menu>\n\n    <router-outlet></router-outlet>\n\n    <footer class=\"text-center bg-light py-2\">\n        Copyright 2019 &copy; <a routerLink=\"/authors\">Autorzy</a>\n    </footer>\n</div>\n"
+module.exports = "<div id=\"page\">\n    <app-user-menu></app-user-menu>\n\n    <app-header></app-header>\n\n    <app-menu></app-menu>\n\n    <router-outlet></router-outlet>\n\n    <app-footer></app-footer>\n</div>\n"
 
 /***/ }),
 
@@ -302,8 +317,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'YouTube';
-        this.description = 'Portal z filmami';
     }
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -313,6 +326,128 @@ var AppComponent = /** @class */ (function () {
         })
     ], AppComponent);
     return AppComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/core/components/footer/footer.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/core/components/footer/footer.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvY29tcG9uZW50cy9mb290ZXIvZm9vdGVyLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/core/components/footer/footer.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/core/components/footer/footer.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<footer class=\"text-center bg-light py-2 my-4\">\n    Copyright 2019 &copy;\n    <a routerLink=\"/authors\">Autorzy</a>\n\n    <span *ngIf=\"!isAuthorizedUser\">\n        (Dostęp tylko dla zalogowanych)\n    </span>\n</footer>\n"
+
+/***/ }),
+
+/***/ "./src/app/core/components/footer/footer.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/core/components/footer/footer.component.ts ***!
+  \************************************************************/
+/*! exports provided: FooterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterComponent", function() { return FooterComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/core/services/auth.service.ts");
+
+
+
+var FooterComponent = /** @class */ (function () {
+    function FooterComponent(auth) {
+        this.auth = auth;
+    }
+    FooterComponent.prototype.ngOnInit = function () {
+    };
+    Object.defineProperty(FooterComponent.prototype, "isAuthorizedUser", {
+        get: function () {
+            return this.auth.isUserLogged();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    FooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-footer',
+            template: __webpack_require__(/*! ./footer.component.html */ "./src/app/core/components/footer/footer.component.html"),
+            styles: [__webpack_require__(/*! ./footer.component.css */ "./src/app/core/components/footer/footer.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
+    ], FooterComponent);
+    return FooterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/core/components/header/header.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/core/components/header/header.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/core/components/header/header.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/core/components/header/header.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<header class=\"row\">\n    <div class=\"col-6\">\n        <h1 routerLink='/'>YouTube</h1>\n        <p class=\"page-lead\">Zobacz swoje ulubione filmy!</p>\n    </div>\n    <div class=\"col-6\">\n        <app-search-form class=\"text-right\"></app-search-form>\n    </div>\n</header>\n"
+
+/***/ }),
+
+/***/ "./src/app/core/components/header/header.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/core/components/header/header.component.ts ***!
+  \************************************************************/
+/*! exports provided: HeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var HeaderComponent = /** @class */ (function () {
+    function HeaderComponent() {
+    }
+    HeaderComponent.prototype.ngOnInit = function () {
+    };
+    HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-header',
+            template: __webpack_require__(/*! ./header.component.html */ "./src/app/core/components/header/header.component.html"),
+            styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/core/components/header/header.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], HeaderComponent);
+    return HeaderComponent;
 }());
 
 
@@ -337,7 +472,7 @@ module.exports = ":host {\n  display: block;\n}\n\n/*# sourceMappingURL=data:app
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"py-3\">\n    <ul class=\"nav\">\n        <li class=\"nav-item pr-1\">\n            <a\n                class=\"btn btn-secondary\"\n                routerLink=\"/\"\n                routerLinkActive=\"btn-success\"\n                [routerLinkActiveOptions]=\"{ exact: true }\"\n            >\n                Home\n            </a>\n        </li>\n        <li class=\"nav-item pr-1\">\n            <a\n                class=\"btn btn-secondary\"\n                routerLink=\"/movies\"\n                routerLinkActive=\"btn-success\"\n            >\n                Movies\n            </a>\n        </li>\n        <li class=\"nav-item\">\n            <a\n                class=\"btn btn-secondary\"\n                routerLink=\"/contact\"\n                routerLinkActive=\"btn-success\"\n            >\n                Contact\n            </a>\n        </li>\n    </ul>\n</nav>\n"
+module.exports = "<nav class=\"py-3\">\n    <ul class=\"nav\">\n        <li class=\"nav-item pr-1\">\n            <a\n                class=\"btn btn-outline-primary\"\n                routerLink=\"/\"\n                routerLinkActive=\"btn-primary text-white\"\n                [routerLinkActiveOptions]=\"{ exact: true }\"\n            >\n                Strona główna\n            </a>\n        </li>\n        <li class=\"nav-item pr-1\">\n            <a\n                class=\"btn btn-outline-primary\"\n                routerLink=\"/movies\"\n                routerLinkActive=\"btn-primary text-white\"\n                [routerLinkActiveOptions]=\"{ exact: true }\"\n            >\n                Filmy\n            </a>\n        </li>\n        <li class=\"nav-item\">\n            <a\n                class=\"btn btn-outline-primary\"\n                routerLink=\"/contact\"\n                routerLinkActive=\"btn-primary text-white\"\n                [routerLinkActiveOptions]=\"{ exact: true }\"\n            >\n                Kontakt\n            </a>\n        </li>\n    </ul>\n</nav>\n"
 
 /***/ }),
 
@@ -451,7 +586,7 @@ module.exports = ":host {\n    display: block;\n}\n\n/*# sourceMappingURL=data:a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p\n    *ngIf=\"!movies\"\n    class=\"alert alert-info\"\n    role=\"alert\"\n>\n    Trwa pobieranie filmów...\n</p>\n\n<div\n    *ngIf=\"movies?.length === 0\"\n    class=\"alert alert-warning\"\n    role=\"alert\"\n>\n    <h2>Ups...</h2>\n\n    <p>Lista filmów jest pusta!</p>\n</div>\n\n<div class=\"row\">\n    <div\n        *ngIf=\"movies?.length > 0\"\n        class=\"col-12 text-center\"\n    >\n        <button\n            (click)=\"sortAscending()\"\n            class=\"badge badge-warning small mr-1\"\n        >\n            Alfabetycznie\n        </button>\n\n        <button\n            (click)=\"sortDescending()\"\n            class=\"badge badge-info small\"\n        >\n            Odwrotnie\n        </button>\n    </div>\n</div>\n\n<div id=\"movie-list\">\n    <ul class=\"list-unstyled d-flex flex-wrap justify-content-between\">\n        <li\n            *ngFor=\"let movie of movies | paginate: { itemsPerPage: perPage, currentPage: page }\"\n            class=\"mb-4\"\n        >\n            <app-movie-list-item [movie]=\"movie\"></app-movie-list-item>\n        </li>\n    </ul>\n</div>\n\n<div class=\"text-center\" *ngIf=\"shouldDisplayPagination\">\n    <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\n</div>\n"
+module.exports = "<p\n    *ngIf=\"!movies\"\n    class=\"alert alert-info\"\n    role=\"alert\"\n>\n    Trwa pobieranie filmów...\n</p>\n\n<div\n    *ngIf=\"movies?.length === 0\"\n    class=\"alert alert-warning\"\n    role=\"alert\"\n>\n    <h2>Ups...</h2>\n\n    <p>Lista filmów jest pusta!</p>\n</div>\n\n<div class=\"row mb-3\">\n    <div\n        *ngIf=\"movies?.length > 0\"\n        class=\"col-12 text-right\"\n    >\n        <span class=\"mr-1\">\n            Sortowanie:\n        </span>\n\n        <button\n            (click)=\"sortAscending()\"\n            class=\"btn btn-outline-primary mr-1\"\n        >\n            🔼\n        </button>\n\n        <button\n            (click)=\"sortDescending()\"\n            class=\"btn btn-outline-primary\"\n        >\n            🔽\n        </button>\n    </div>\n</div>\n\n<div id=\"movie-list\">\n    <ul class=\"list-unstyled d-flex flex-wrap justify-content-between\">\n        <li\n            *ngFor=\"let movie of movies | paginate: { itemsPerPage: perPage, currentPage: page }\"\n            class=\"mb-4\"\n        >\n            <app-movie-list-item [movie]=\"movie\"></app-movie-list-item>\n        </li>\n    </ul>\n</div>\n\n<div class=\"text-center\" *ngIf=\"shouldDisplayPagination\">\n    <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\n</div>\n"
 
 /***/ }),
 
@@ -693,7 +828,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-breadcrumb\n    pageName=\"Autorzy\"\n></app-breadcrumb>\n\n<p>\n    Lista autorów projektu:\n</p>\n\n<ul>\n    <li>\n        Piotr Kowalski <a href=\"https://twitter.com/piecioshka\">@piecioshka</a>\n    </li>\n</ul>\n"
+module.exports = "<app-breadcrumb\n    [segments]=\"['Autorzy']\"\n></app-breadcrumb>\n\n<p>\n    Lista autorów projektu:\n</p>\n\n<ul>\n    <li>\n        Piotr Kowalski <a href=\"https://twitter.com/piecioshka\">@piecioshka</a>\n    </li>\n</ul>\n"
 
 /***/ }),
 
@@ -749,7 +884,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-breadcrumb\n    pageName=\"Kontakt\"\n></app-breadcrumb>\n\n<p>contact works!</p>\n"
+module.exports = "<app-breadcrumb\n    [segments]=\"['Kontakt']\"\n></app-breadcrumb>\n\n<p>Formularz kontaktowy...</p>\n"
 
 /***/ }),
 
@@ -882,7 +1017,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-breadcrumb\n    pageName=\"Najnowsze filmy\"\n></app-breadcrumb>\n\n<app-movie-list\n    [movies]=\"allMovies\"\n></app-movie-list>\n"
+module.exports = "<app-breadcrumb\n    [segments]=\"['Filmy']\"\n></app-breadcrumb>\n\n<app-movie-list\n    [movies]=\"allMovies\"\n></app-movie-list>\n"
 
 /***/ }),
 
@@ -955,7 +1090,7 @@ module.exports = ":host {\n    display: block;\n}\n\n/*# sourceMappingURL=data:a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-breadcrumb\n    pageName=\"Nie znaleziono filmu\"\n></app-breadcrumb>\n\n<div class=\"alert alert-danger\" role=\"alert\">\n    <h2>Ups...</h2>\n\n    <p>\n        Nie ma takiego filmu w naszej bazie.\n    </p>\n</div>\n"
+module.exports = "<app-breadcrumb\n    [segments]=\"['Nie znaleziono filmu']\"\n></app-breadcrumb>\n\n<div class=\"alert alert-danger\" role=\"alert\">\n    <h2>Ups...</h2>\n\n    <p>\n        Nie ma takiego filmu w naszej bazie.\n    </p>\n</div>\n"
 
 /***/ }),
 
@@ -997,7 +1132,7 @@ var PageMovieNotFoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvcGFnZXMvcGFnZS1tb3ZpZS1wcm9maWxlL3BhZ2UtbW92aWUtcHJvZmlsZS5jb21wb25lbnQuY3NzIn0= */"
+module.exports = ":host {\n    display: block;\n}\n\niframe {\n    width: 100%;\n    height: 300px;\n    border: 0;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9wYWdlcy9wYWdlLW1vdmllLXByb2ZpbGUvcGFnZS1tb3ZpZS1wcm9maWxlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxlQUFlO0NBQ2xCOztBQUVEO0lBQ0ksWUFBWTtJQUNaLGNBQWM7SUFDZCxVQUFVO0NBQ2IiLCJmaWxlIjoic3JjL2FwcC9jb3JlL3BhZ2VzL3BhZ2UtbW92aWUtcHJvZmlsZS9wYWdlLW1vdmllLXByb2ZpbGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcbiAgICBkaXNwbGF5OiBibG9jaztcbn1cblxuaWZyYW1lIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDMwMHB4O1xuICAgIGJvcmRlcjogMDtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -1008,7 +1143,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-breadcrumb\n    pageName=\"Film\"\n></app-breadcrumb>\n\n<p\n    *ngIf=\"!movie\"\n    class=\"alert alert-info\"\n    role=\"alert\"\n>\n    Trwa pobieranie danych na temat wybranego filmu...\n</p>\n\n<div\n    *ngIf=\"movie\"\n    class=\"row\"\n>\n    <div class=\"col-3\">\n        <app-image\n            class=\"img-thumbnail rounded float-left\"\n            [src]=\"movie.thumb_url\"\n        ></app-image>\n    </div>\n\n    <div class=\"col-5\">\n        <h2>\n            {{ movie.title }}\n            <small *ngIf=\"movie.year\">\n                ( {{ movie.year }} )\n            </small>\n        </h2>\n\n        <p *ngIf=\"movie.duration\">\n            Czas trwania: {{ movie.duration }} minut\n        </p>\n\n        <p>\n            {{ movie.description }}\n        </p>\n    </div>\n\n    <div class=\"col-4\">\n        <iframe\n            class=\"row\"\n            [src]=\"getVideoUrl()\"\n        ></iframe>\n    </div>\n</div>\n"
+module.exports = "<app-breadcrumb\n    [segments]=\"['Filmy', movie?.title || '...']\"\n></app-breadcrumb>\n\n<p\n    *ngIf=\"!movie\"\n    class=\"alert alert-info\"\n    role=\"alert\"\n>\n    Trwa pobieranie danych na temat wybranego filmu...\n</p>\n\n<div\n    *ngIf=\"movie\"\n    class=\"row\"\n>\n    <div class=\"col-5\">\n        <h2>\n            {{ movie.title }}\n            <small *ngIf=\"movie.year\">\n                ( {{ movie.year }} )\n            </small>\n        </h2>\n\n        <p *ngIf=\"movie.duration\">\n            Czas trwania: {{ movie.duration }} minut\n        </p>\n\n        <p>\n            {{ movie.description }}\n        </p>\n    </div>\n\n    <div class=\"col-7\">\n        <iframe\n            class=\"row\"\n            [src]=\"getVideoUrl()\"\n        ></iframe>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -1094,6 +1229,62 @@ var PageMovieProfileComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/core/pages/page-not-found/page-not-found.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/core/pages/page-not-found/page-not-found.component.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvcGFnZXMvcGFnZS1ub3QtZm91bmQvcGFnZS1ub3QtZm91bmQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/core/pages/page-not-found/page-not-found.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/core/pages/page-not-found/page-not-found.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-breadcrumb\n    [segments]=\"['404']\"\n></app-breadcrumb>\n\n<h2>Ups...</h2>\n\n<p>\n    Nie ma takiej strony. Wróć na\n    <a routerLink=\"/\">stronę główną</a>.\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/core/pages/page-not-found/page-not-found.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/core/pages/page-not-found/page-not-found.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: PageNotFoundComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageNotFoundComponent", function() { return PageNotFoundComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var PageNotFoundComponent = /** @class */ (function () {
+    function PageNotFoundComponent() {
+    }
+    PageNotFoundComponent.prototype.ngOnInit = function () {
+    };
+    PageNotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-page-not-found',
+            template: __webpack_require__(/*! ./page-not-found.component.html */ "./src/app/core/pages/page-not-found/page-not-found.component.html"),
+            styles: [__webpack_require__(/*! ./page-not-found.component.css */ "./src/app/core/pages/page-not-found/page-not-found.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], PageNotFoundComponent);
+    return PageNotFoundComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/core/pages/page-search/page-search.component.css":
 /*!******************************************************************!*\
   !*** ./src/app/core/pages/page-search/page-search.component.css ***!
@@ -1112,7 +1303,7 @@ module.exports = ":host {\n    display: block;\n}\n\n/*# sourceMappingURL=data:a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-breadcrumb\n    pageName=\"Wyszukiwarka\"\n></app-breadcrumb>\n\n<app-movie-list\n    [movies]=\"foundMovies\"\n></app-movie-list>\n"
+module.exports = "<app-breadcrumb\n    [segments]=\"['Wyszukiwarka']\"\n></app-breadcrumb>\n\n<app-movie-list\n    [movies]=\"foundMovies\"\n></app-movie-list>\n"
 
 /***/ }),
 
@@ -1203,7 +1394,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-breadcrumb\n    pageName=\"Logowanie\"\n></app-breadcrumb>\n\n<p\n    class=\"alert alert-danger\"\n    *ngIf=\"authError\"\n>\n    {{ authError }}\n</p>\n\n<form\n    [formGroup]=\"loginFormGroup\"\n    (ngSubmit)=\"onSubmit()\"\n>\n    <div class=\"form-group\">\n        <label>\n            E-mail\n            <sup class=\"text-danger\">*</sup>\n        </label>\n        <input\n            type=\"text\"\n            class=\"form-control\"\n            formControlName=\"email\"\n            [class.is-invalid]=\"validateField('email')\"\n        >\n        <app-field-errors\n            [formGroupRef]=\"loginFormGroup\"\n            fieldName=\"email\"\n            *ngIf=\"validateField('email')\"\n        ></app-field-errors>\n    </div>\n\n    <div class=\"form-group\">\n        <label>\n            Password\n            <sup class=\"text-danger\">*</sup>\n        </label>\n        <input\n            type=\"text\"\n            class=\"form-control\"\n            formControlName=\"password\"\n            [class.is-invalid]=\"validateField('password')\"\n        >\n        <app-field-errors\n            [formGroupRef]=\"loginFormGroup\"\n            fieldName=\"password\"\n            *ngIf=\"validateField('password')\"\n        ></app-field-errors>\n    </div>\n\n    <div class=\"form-group\">\n        <button\n            type=\"submit\"\n            class=\"btn btn-primary\"\n            [disabled]=\"loginFormGroup.invalid\"\n        >\n            Login\n        </button>\n    </div>\n\n</form>\n"
+module.exports = "<app-breadcrumb\n    [segments]=\"['Użytkownik', 'Logowanie']\"\n></app-breadcrumb>\n\n<p\n    class=\"alert alert-danger\"\n    *ngIf=\"authError\"\n>\n    {{ authError }}\n</p>\n\n<form\n    [formGroup]=\"loginFormGroup\"\n    (ngSubmit)=\"onSubmit()\"\n>\n    <div class=\"form-group\">\n        <label>\n            E-mail\n            <sup class=\"text-danger\">*</sup>\n        </label>\n        <input\n            type=\"text\"\n            class=\"form-control\"\n            formControlName=\"email\"\n            [class.is-invalid]=\"validateField('email')\"\n        >\n        <app-field-errors\n            [formGroupRef]=\"loginFormGroup\"\n            fieldName=\"email\"\n            *ngIf=\"validateField('email')\"\n        ></app-field-errors>\n    </div>\n\n    <div class=\"form-group\">\n        <label>\n            Password\n            <sup class=\"text-danger\">*</sup>\n        </label>\n        <input\n            type=\"text\"\n            class=\"form-control\"\n            formControlName=\"password\"\n            [class.is-invalid]=\"validateField('password')\"\n        >\n        <app-field-errors\n            [formGroupRef]=\"loginFormGroup\"\n            fieldName=\"password\"\n            *ngIf=\"validateField('password')\"\n        ></app-field-errors>\n    </div>\n\n    <div class=\"form-group\">\n        <button\n            type=\"submit\"\n            class=\"btn btn-primary\"\n            [disabled]=\"loginFormGroup.invalid\"\n        >\n            Login\n        </button>\n    </div>\n\n</form>\n"
 
 /***/ }),
 
@@ -1378,7 +1569,7 @@ module.exports = ":host {\n    display: block;\n}\n\n/*# sourceMappingURL=data:a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-breadcrumb\n    pageName=\"Rejestracja\"\n></app-breadcrumb>\n\n<div class=\"row\">\n    <!-- <pre>{{ userRegistrationForm.value | json }}</pre> -->\n    <!-- <pre>{{ userRegistrationForm.form.errors }}</pre> -->\n</div>\n\n<div class=\"row\">\n    <p>\n        If you have account\n        <a routerLink=\"/user/login\">Try login</a>\n    </p>\n</div>\n\n<div class=\"row\">\n    <form\n        #userRegistrationForm=\"ngForm\"\n        class=\"col-md-7\"\n        (ngSubmit)=\"submit(userRegistrationForm.value)\"\n        novalidate\n    >\n        <div class=\"form-group\">\n            <label>\n                Username\n                <sup class=\"text-danger\">*</sup>\n            </label>\n            <input\n                #username=\"ngModel\"\n                [(ngModel)]=\"userModel.username\"\n                required\n                type=\"text\"\n                class=\"form-control\"\n                [class.is-invalid]=\"username.invalid && username.touched\"\n                name=\"username\"\n                maxlength=\"3\"\n                minlength=\"2\"\n            >\n            <div\n                class=\"text-danger\"\n                *ngIf=\"username.touched\"\n            >\n                <small *ngIf=\"username.errors?.required\">Username field is required</small>\n                <small *ngIf=\"username.errors?.minlength\">Username length is to small</small>\n                <small *ngIf=\"username.errors?.maxlength\">Username length is to big</small>\n            </div>\n        </div>\n\n        <div class=\"form-group\">\n            <label>\n                E-mail\n                <sup class=\"text-danger\">*</sup>\n            </label>\n            <input\n                #email=\"ngModel\"\n                [(ngModel)]=\"userModel.email\"\n                required\n                type=\"email\"\n                class=\"form-control\"\n                [class.is-invalid]=\"email.invalid && email.touched\"\n                name=\"email\"\n            >\n            <small\n                class=\"text-danger\"\n                *ngIf=\"email.invalid && email.touched\"\n            >\n                Email field is required\n            </small>\n        </div>\n\n        <div class=\"form-group\">\n            <label>\n                Password\n                <sup class=\"text-danger\">*</sup>\n            </label>\n            <input\n                #password=\"ngModel\"\n                [(ngModel)]=\"userModel.password\"\n                required\n                type=\"text\"\n                class=\"form-control\"\n                [class.is-invalid]=\"password.invalid && password.touched\"\n                name=\"password\"\n            >\n            <small\n                class=\"text-danger\"\n                *ngIf=\"password.invalid && password.touched\"\n            >\n                Password field is required\n            </small>\n        </div>\n\n        <div class=\"form-group\">\n            <label>\n                Sex\n                <sup class=\"text-danger\">*</sup>\n            </label>\n            <select\n                #sex=\"ngModel\"\n                [(ngModel)]=\"userModel.sex\"\n                required\n                class=\"form-control\"\n                [class.is-invalid]=\"sex.invalid && sex.touched\"\n                name=\"sex\"\n            >\n                <option value>Select</option>\n                <option value=\"m\">Male</option>\n                <option value=\"f\">Female</option>\n            </select>\n            <small\n                class=\"text-danger\"\n                *ngIf=\"sex.invalid && sex.touched\"\n            >\n                Sex field is required\n            </small>\n        </div>\n\n        <div class=\"form-group form-inline\">\n            <button\n                type=\"submit\"\n                class=\"btn btn-primary mr-1\"\n                [disabled]=\"userRegistrationForm.invalid\"\n            >\n                Submit\n            </button>\n\n            <button\n                type=\"reset\"\n                class=\"btn btn-danger\"\n            >\n                Reset\n            </button>\n        </div>\n    </form>\n</div>\n"
+module.exports = "<app-breadcrumb\n    [segments]=\"['Użytkownik', 'Rejestracja']\"\n></app-breadcrumb>\n\n<div class=\"row\">\n    <!-- <pre>{{ userRegistrationForm.value | json }}</pre> -->\n    <!-- <pre>{{ userRegistrationForm.form.errors }}</pre> -->\n</div>\n\n<div class=\"row\">\n    <p class=\"col-md-12\">\n        Jeśli masz już konto to\n        <a routerLink=\"/user/login\">Zaloguj się</a>\n    </p>\n</div>\n\n<div class=\"row\">\n    <form\n        #userRegistrationForm=\"ngForm\"\n        class=\"col-md-7\"\n        (ngSubmit)=\"submit(userRegistrationForm.value)\"\n        novalidate\n    >\n        <div class=\"form-group\">\n            <label>\n                Username\n                <sup class=\"text-danger\">*</sup>\n            </label>\n            <input\n                #username=\"ngModel\"\n                [(ngModel)]=\"userModel.username\"\n                required\n                type=\"text\"\n                class=\"form-control\"\n                [class.is-invalid]=\"username.invalid && username.touched\"\n                name=\"username\"\n                maxlength=\"3\"\n                minlength=\"2\"\n            >\n            <div\n                class=\"text-danger\"\n                *ngIf=\"username.touched\"\n            >\n                <small *ngIf=\"username.errors?.required\">Username field is required</small>\n                <small *ngIf=\"username.errors?.minlength\">Username length is to small</small>\n                <small *ngIf=\"username.errors?.maxlength\">Username length is to big</small>\n            </div>\n        </div>\n\n        <div class=\"form-group\">\n            <label>\n                E-mail\n                <sup class=\"text-danger\">*</sup>\n            </label>\n            <input\n                #email=\"ngModel\"\n                [(ngModel)]=\"userModel.email\"\n                required\n                type=\"email\"\n                class=\"form-control\"\n                [class.is-invalid]=\"email.invalid && email.touched\"\n                name=\"email\"\n            >\n            <small\n                class=\"text-danger\"\n                *ngIf=\"email.invalid && email.touched\"\n            >\n                Email field is required\n            </small>\n        </div>\n\n        <div class=\"form-group\">\n            <label>\n                Password\n                <sup class=\"text-danger\">*</sup>\n            </label>\n            <input\n                #password=\"ngModel\"\n                [(ngModel)]=\"userModel.password\"\n                required\n                type=\"text\"\n                class=\"form-control\"\n                [class.is-invalid]=\"password.invalid && password.touched\"\n                name=\"password\"\n            >\n            <small\n                class=\"text-danger\"\n                *ngIf=\"password.invalid && password.touched\"\n            >\n                Password field is required\n            </small>\n        </div>\n\n        <div class=\"form-group\">\n            <label>\n                Sex\n                <sup class=\"text-danger\">*</sup>\n            </label>\n            <select\n                #sex=\"ngModel\"\n                [(ngModel)]=\"userModel.sex\"\n                required\n                class=\"form-control\"\n                [class.is-invalid]=\"sex.invalid && sex.touched\"\n                name=\"sex\"\n            >\n                <option value>Select</option>\n                <option value=\"m\">Male</option>\n                <option value=\"f\">Female</option>\n            </select>\n            <small\n                class=\"text-danger\"\n                *ngIf=\"sex.invalid && sex.touched\"\n            >\n                Sex field is required\n            </small>\n        </div>\n\n        <div class=\"form-group form-inline\">\n            <button\n                type=\"submit\"\n                class=\"btn btn-primary mr-1\"\n                [disabled]=\"userRegistrationForm.invalid\"\n            >\n                Submit\n            </button>\n\n            <button\n                type=\"reset\"\n                class=\"btn btn-danger\"\n            >\n                Reset\n            </button>\n        </div>\n    </form>\n</div>\n"
 
 /***/ }),
 
@@ -1680,7 +1871,7 @@ module.exports = ":host {\n    display: block;\n}\n\n/*# sourceMappingURL=data:a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav aria-label=\"breadcrumb\">\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">Start</li>\n\n        <li\n            class=\"breadcrumb-item active\"\n            *ngIf=\"pageName\"\n        >\n            {{ pageName }}\n        </li>\n    </ol>\n</nav>\n"
+module.exports = "<nav aria-label=\"breadcrumb\">\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">Start</li>\n\n        <li\n            class=\"breadcrumb-item\"\n            *ngFor=\"let segment of segments; let last = last\"\n            [class.active]=\"last\"\n        >\n            {{ segment }}\n        </li>\n    </ol>\n</nav>\n"
 
 /***/ }),
 
@@ -1700,12 +1891,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var BreadcrumbComponent = /** @class */ (function () {
     function BreadcrumbComponent() {
-        this.pageName = null;
+        this.segments = [];
     }
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BreadcrumbComponent.prototype, "pageName", void 0);
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], BreadcrumbComponent.prototype, "segments", void 0);
     BreadcrumbComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-breadcrumb',
@@ -1895,7 +2086,7 @@ var ImageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n    display: block;\n}\n\n:host input {\n    width: 300px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvc2VhcmNoLWZvcm0vc2VhcmNoLWZvcm0uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7Q0FDbEI7O0FBRUQ7SUFDSSxhQUFhO0NBQ2hCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvc2VhcmNoLWZvcm0vc2VhcmNoLWZvcm0uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcbiAgICBkaXNwbGF5OiBibG9jaztcbn1cblxuOmhvc3QgaW5wdXQge1xuICAgIHdpZHRoOiAzMDBweDtcbn1cbiJdfQ== */"
+module.exports = ":host {\n    display: block;\n}\n\n:host input {\n    width: 300px;\n    padding: 2px 5px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvc2VhcmNoLWZvcm0vc2VhcmNoLWZvcm0uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7Q0FDbEI7O0FBRUQ7SUFDSSxhQUFhO0lBQ2IsaUJBQWlCO0NBQ3BCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvc2VhcmNoLWZvcm0vc2VhcmNoLWZvcm0uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcbiAgICBkaXNwbGF5OiBibG9jaztcbn1cblxuOmhvc3QgaW5wdXQge1xuICAgIHdpZHRoOiAzMDBweDtcbiAgICBwYWRkaW5nOiAycHggNXB4O1xufVxuIl19 */"
 
 /***/ }),
 
@@ -1906,7 +2097,7 @@ module.exports = ":host {\n    display: block;\n}\n\n:host input {\n    width: 3
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"bg-primary text-white p-3\">\n    <h3>\n        Wyszukiwarka\n    </h3>\n\n    <input\n        #phrase\n        (keyup.enter)=\"handleEnter(phrase.value)\"\n        placeholder=\"Wpisz tytuł filmu i naciśnij ENTER\"\n        autofocus\n    />\n</div>\n"
+module.exports = "<div class=\"bg-primary text-white p-3\">\n    <h3>Znajdź swój ulubiony film</h3>\n\n    <input\n        #phrase\n        (keyup.enter)=\"handleEnter(phrase.value)\"\n        placeholder=\"Wpisz tytuł filmu i naciśnij ENTER\"\n        autofocus\n    >\n\n    <button\n        class=\"btn btn-warning ml-2\"\n        (click)=\"handleEnter(phrase.value)\"\n    >\n        Wyszukaj\n    </button>\n</div>\n"
 
 /***/ }),
 
@@ -2135,4 +2326,4 @@ module.exports = __webpack_require__(/*! /Users/piecioshka/projects/test-angular
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.072b2d34b73ff7425f79.js.map
+//# sourceMappingURL=main.4b822a3d4c32c4492593.js.map
