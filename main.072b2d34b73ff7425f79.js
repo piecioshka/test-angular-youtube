@@ -37,17 +37,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.routes */ "./src/app/core/app.routes.ts");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 
 
 
 
+
+var options = {};
+if (src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].enableRoutingHashStrategy) {
+    options.useHash = true;
+}
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             imports: [
-                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_3__["routes"])
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_3__["routes"], options)
             ],
             exports: [
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]
@@ -215,8 +221,7 @@ var routes = [
                 path: ':id',
                 component: _pages_page_movie_profile_page_movie_profile_component__WEBPACK_IMPORTED_MODULE_5__["PageMovieProfileComponent"]
             }
-        ],
-        canActivate: [src_app_core_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
+        ]
     },
     {
         path: 'search',
@@ -251,7 +256,8 @@ var routes = [
                 path: '',
                 component: _pages_page_author_list_page_author_list_component__WEBPACK_IMPORTED_MODULE_7__["PageAuthorListComponent"]
             }
-        ]
+        ],
+        canActivate: [src_app_core_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     }
 ];
 
@@ -376,7 +382,7 @@ var MenuComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n    display: block;\n    width: 300px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9jb21wb25lbnRzL21vdmllLWxpc3QtaXRlbS9tb3ZpZS1saXN0LWl0ZW0uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7SUFDZixhQUFhO0NBQ2hCIiwiZmlsZSI6InNyYy9hcHAvY29yZS9jb21wb25lbnRzL21vdmllLWxpc3QtaXRlbS9tb3ZpZS1saXN0LWl0ZW0uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogMzAwcHg7XG59XG4iXX0= */"
+module.exports = ":host {\n    display: block;\n    width: 300px;\n}\n\nimg {\n    height: 225px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9jb21wb25lbnRzL21vdmllLWxpc3QtaXRlbS9tb3ZpZS1saXN0LWl0ZW0uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7SUFDZixhQUFhO0NBQ2hCOztBQUVEO0lBQ0ksY0FBYztDQUNqQiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvY29tcG9uZW50cy9tb3ZpZS1saXN0LWl0ZW0vbW92aWUtbGlzdC1pdGVtLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgd2lkdGg6IDMwMHB4O1xufVxuXG5pbWcge1xuICAgIGhlaWdodDogMjI1cHg7XG59XG4iXX0= */"
 
 /***/ }),
 
@@ -387,7 +393,7 @@ module.exports = ":host {\n    display: block;\n    width: 300px;\n}\n\n/*# sour
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"movie\">\n    <div class=\"card\">\n        <a [routerLink]=\"['/movies/' + movie.id]\">\n            <app-image\n                class=\"card-img-top\"\n                [src]=\"movie.thumb_url\"\n            ></app-image>\n        </a>\n\n        <div class=\"card-body\">\n            <h3 class=\"card-title\">\n                {{ movie.title }}\n                <small *ngIf=\"movie.year\">( {{ movie.year }} )</small>\n            </h3>\n\n            <p\n                *ngIf=\"movie.duration\"\n                class=\"card-text\"\n            >\n                Czas trwania: {{ movie.duration }} minut\n            </p>\n\n            <p>{{ movie.description }}</p>\n\n            <a\n                [routerLink]=\"['/movies/' + movie.id]\"\n                class=\"btn btn-primary\"\n            >\n                Zobacz profil\n            </a>\n        </div>\n    </div>\n</ng-container>\n"
+module.exports = "<ng-container *ngIf=\"movie\">\n    <div class=\"card\">\n        <a [routerLink]=\"['/movies/' + movie.id]\">\n            <app-image\n                class=\"card-img-top\"\n                [src]=\"movie.thumb_url\"\n            ></app-image>\n        </a>\n\n        <div class=\"card-body\">\n            <h3 class=\"card-title\">\n                {{ movie.title }}\n                <small *ngIf=\"movie.year\">({{ movie.year }})</small>\n            </h3>\n\n            <p\n                *ngIf=\"movie.duration\"\n                class=\"card-text\"\n            >\n                Czas trwania: {{ movie.duration }} minut\n            </p>\n\n            <a\n                [routerLink]=\"['/movies/' + movie.id]\"\n                class=\"btn btn-primary\"\n            >\n                Zobacz profil\n            </a>\n        </div>\n    </div>\n</ng-container>\n"
 
 /***/ }),
 
@@ -445,7 +451,7 @@ module.exports = ":host {\n    display: block;\n}\n\n/*# sourceMappingURL=data:a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p\n    *ngIf=\"!movies\"\n    class=\"alert alert-info\"\n    role=\"alert\"\n>\n    Trwa pobieranie filmów...\n</p>\n\n<div\n    *ngIf=\"movies?.length === 0\"\n    class=\"alert alert-warning\"\n    role=\"alert\"\n>\n    <h2>Ups...</h2>\n\n    <p>Lista filmów jest pusta!</p>\n</div>\n\n<div class=\"row\">\n    <div\n        *ngIf=\"movies?.length > 0\"\n        class=\"col-12 text-center\"\n    >\n        <button\n            (click)=\"sortAscending()\"\n            class=\"badge badge-warning small mr-1\"\n        >\n            Alfabetycznie\n        </button>\n\n        <button\n            (click)=\"sortDescending()\"\n            class=\"badge badge-info small\"\n        >\n            Odwrotnie\n        </button>\n    </div>\n</div>\n\n<div id=\"movie-list\">\n    <ul class=\"list-unstyled d-inline-flex flex-wrap\">\n        <li\n            *ngFor=\"let movie of movies | paginate: { itemsPerPage: 3, currentPage: page }\"\n            class=\"m-1\"\n        >\n            <app-movie-list-item [movie]=\"movie\"></app-movie-list-item>\n        </li>\n    </ul>\n</div>\n\n<div class=\"text-center\">\n    <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\n</div>\n"
+module.exports = "<p\n    *ngIf=\"!movies\"\n    class=\"alert alert-info\"\n    role=\"alert\"\n>\n    Trwa pobieranie filmów...\n</p>\n\n<div\n    *ngIf=\"movies?.length === 0\"\n    class=\"alert alert-warning\"\n    role=\"alert\"\n>\n    <h2>Ups...</h2>\n\n    <p>Lista filmów jest pusta!</p>\n</div>\n\n<div class=\"row\">\n    <div\n        *ngIf=\"movies?.length > 0\"\n        class=\"col-12 text-center\"\n    >\n        <button\n            (click)=\"sortAscending()\"\n            class=\"badge badge-warning small mr-1\"\n        >\n            Alfabetycznie\n        </button>\n\n        <button\n            (click)=\"sortDescending()\"\n            class=\"badge badge-info small\"\n        >\n            Odwrotnie\n        </button>\n    </div>\n</div>\n\n<div id=\"movie-list\">\n    <ul class=\"list-unstyled d-flex flex-wrap justify-content-between\">\n        <li\n            *ngFor=\"let movie of movies | paginate: { itemsPerPage: perPage, currentPage: page }\"\n            class=\"mb-4\"\n        >\n            <app-movie-list-item [movie]=\"movie\"></app-movie-list-item>\n        </li>\n    </ul>\n</div>\n\n<div class=\"text-center\" *ngIf=\"shouldDisplayPagination\">\n    <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\n</div>\n"
 
 /***/ }),
 
@@ -465,6 +471,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var MovieListComponent = /** @class */ (function () {
     function MovieListComponent() {
+        this.perPage = 6;
         this.page = 1;
         this.movies = null;
     }
@@ -486,6 +493,24 @@ var MovieListComponent = /** @class */ (function () {
         }
         return 0;
     };
+    Object.defineProperty(MovieListComponent.prototype, "shouldDisplayPagination", {
+        get: function () {
+            if (!this.movies) {
+                return false;
+            }
+            return this.movies.length > this.perPage;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], MovieListComponent.prototype, "perPage", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], MovieListComponent.prototype, "page", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
@@ -494,6 +519,7 @@ var MovieListComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-movie-list',
             template: __webpack_require__(/*! ./movie-list.component.html */ "./src/app/core/components/movie-list/movie-list.component.html"),
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
             styles: [__webpack_require__(/*! ./movie-list.component.css */ "./src/app/core/components/movie-list/movie-list.component.css")]
         })
     ], MovieListComponent);
@@ -522,7 +548,7 @@ module.exports = ":host {\n  display: block;\n}\n\n/*# sourceMappingURL=data:app
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n    <span\n        class=\"navbar-brand\"\n        routerLink=\"/\"\n    >\n        a'la YouTube\n    </span>\n\n    <div *ngIf=\"!userIsLogged\">\n        <ul>\n            <li>\n                <a routerLink=\"/user/register\">Register</a>\n            </li>\n            <li>\n                <a routerLink=\"/user/login\">Login</a>\n            </li>\n        </ul>\n    </div>\n\n    <div *ngIf=\"userIsLogged\">\n        <ul>\n            <li>\n                <a routerLink=\"/user/logout\">Logout</a>\n            </li>\n        </ul>\n    </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark flex-row-reverse\">\n    <div *ngIf=\"!userIsLogged\">\n        <ul class=\"nav\">\n            <li class=\"nav-item pr-2\">\n                <a\n                    class=\"btn btn-secondary btn-sm\"\n                    routerLink=\"/user/register\"\n                >\n                    Register\n                </a>\n            </li>\n            <li class=\"nav-item\">\n                <a\n                    class=\"btn btn-secondary btn-sm\"\n                    routerLink=\"/user/login\"\n                >\n                    Login\n                </a>\n            </li>\n        </ul>\n    </div>\n\n    <div *ngIf=\"userIsLogged\">\n        <ul class=\"nav\">\n            <li class=\"nav-item pr-2\">\n                <span class=\"badge badge-warning\">\n                    {{ userName }}\n                </span>\n            </li>\n            <li class=\"nav-item\">\n                <a\n                    class=\"btn btn-secondary btn-sm\"\n                    routerLink=\"/user/logout\"\n                >\n                    Logout\n                </a>\n            </li>\n        </ul>\n    </div>\n</nav>\n"
 
 /***/ }),
 
@@ -551,6 +577,7 @@ var UserMenuComponent = /** @class */ (function () {
         this.router = router;
         this.auth = auth;
         this.userIsLogged = false;
+        this.userName = null;
     }
     UserMenuComponent.prototype.ngOnInit = function () {
         this.updateUserLoggedStatus();
@@ -561,6 +588,7 @@ var UserMenuComponent = /** @class */ (function () {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (evt) { return evt instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]; }))
             .subscribe(function () {
             _this.userIsLogged = _this.auth.isUserLogged();
+            _this.userName = _this.auth.getUserName();
         });
     };
     UserMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -777,7 +805,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-breadcrumb></app-breadcrumb>\n\n<p>home works!</p>\n"
+module.exports = "<app-breadcrumb></app-breadcrumb>\n\n<app-movie-list\n    [perPage]=\"perPage\"\n    [movies]=\"promoMovies\"\n></app-movie-list>\n"
 
 /***/ }),
 
@@ -793,12 +821,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageHomeComponent", function() { return PageHomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_movies_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/movies.service */ "./src/app/core/services/movies.service.ts");
+
 
 
 var PageHomeComponent = /** @class */ (function () {
-    function PageHomeComponent() {
+    function PageHomeComponent(movies) {
+        this.movies = movies;
+        this.perPage = 3;
+        this.promoMovies = [];
     }
     PageHomeComponent.prototype.ngOnInit = function () {
+        this.setupMovies();
+    };
+    PageHomeComponent.prototype.setupMovies = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var allMovies;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.movies.fetchMoviesPromise()];
+                    case 1:
+                        allMovies = _a.sent();
+                        allMovies.length = this.perPage;
+                        this.promoMovies = allMovies;
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     PageHomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -806,7 +855,7 @@ var PageHomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./page-home.component.html */ "./src/app/core/pages/page-home/page-home.component.html"),
             styles: [__webpack_require__(/*! ./page-home.component.css */ "./src/app/core/pages/page-home/page-home.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_movies_service__WEBPACK_IMPORTED_MODULE_2__["MoviesService"]])
     ], PageHomeComponent);
     return PageHomeComponent;
 }());
@@ -1415,15 +1464,24 @@ var AuthService = /** @class */ (function () {
         var status = this.usersStore.check(userCredentials);
         if (status) {
             this.localStorageService.create('user-logged', true);
+            this.localStorageService.create('user', { login: userCredentials.email });
         }
         return status;
+    };
+    AuthService.prototype.getUserName = function () {
+        var user = this.localStorageService.read('user');
+        if (typeof user === 'object' && user != null && user.hasOwnProperty('login')) {
+            return user.login;
+        }
     };
     AuthService.prototype.isUserLogged = function () {
         var data = this.localStorageService.read('user-logged');
         return Boolean(data);
     };
     AuthService.prototype.destroyUserSession = function () {
-        return this.localStorageService.delete('user-logged');
+        this.localStorageService.delete('user-logged');
+        this.localStorageService.delete('user');
+        return true;
     };
     // Rejestracja użytkownika
     AuthService.prototype.register = function (userModel) {
@@ -1622,7 +1680,7 @@ module.exports = ":host {\n    display: block;\n}\n\n/*# sourceMappingURL=data:a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav aria-label=\"breadcrumb\">\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">\n            Start\n        </li>\n\n        <li class=\"breadcrumb-item active\">\n            {{ pageName }}\n        </li>\n    </ol>\n</nav>\n"
+module.exports = "<nav aria-label=\"breadcrumb\">\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">Start</li>\n\n        <li\n            class=\"breadcrumb-item active\"\n            *ngIf=\"pageName\"\n        >\n            {{ pageName }}\n        </li>\n    </ol>\n</nav>\n"
 
 /***/ }),
 
@@ -2031,7 +2089,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
 var environment = {
     production: false,
-    moviesUrl: 'https://piecioshka.github.com/test-angular-youtube/assets/db.json'
+    enableRoutingHashStrategy: true,
+    moviesUrl: 'https://piecioshka.github.io/test-angular-youtube/assets/movies.json'
 };
 
 
@@ -2076,4 +2135,4 @@ module.exports = __webpack_require__(/*! /Users/piecioshka/projects/test-angular
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.465ffa5842f96c01cf18.js.map
+//# sourceMappingURL=main.072b2d34b73ff7425f79.js.map
