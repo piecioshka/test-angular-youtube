@@ -1,0 +1,27 @@
+<div id="page">
+    <app-user-menu></app-user-menu>
+
+    <header class="row">
+        <div class="col-7">
+            <h1 routerLink='/'>
+                {{ title }}
+            </h1>
+            <p class="page-lead">
+                {{ description }}
+            </p>
+        </div>
+        <div class="col-5">
+            <app-search-form
+                class="text-right"
+            ></app-search-form>
+        </div>
+    </header>
+
+    <app-menu></app-menu>
+
+    <router-outlet></router-outlet>
+
+    <footer class="text-center bg-light py-2">
+        Copyright 2019 &copy; <a routerLink="/authors">Autorzy</a>
+    </footer>
+</div>

@@ -1,0 +1,62 @@
+<app-breadcrumb
+    pageName="Logowanie"
+></app-breadcrumb>
+
+<p
+    class="alert alert-danger"
+    *ngIf="authError"
+>
+    {{ authError }}
+</p>
+
+<form
+    [formGroup]="loginFormGroup"
+    (ngSubmit)="onSubmit()"
+>
+    <div class="form-group">
+        <label>
+            E-mail
+            <sup class="text-danger">*</sup>
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            formControlName="email"
+            [class.is-invalid]="validateField('email')"
+        >
+        <app-field-errors
+            [formGroupRef]="loginFormGroup"
+            fieldName="email"
+            *ngIf="validateField('email')"
+        ></app-field-errors>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Password
+            <sup class="text-danger">*</sup>
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            formControlName="password"
+            [class.is-invalid]="validateField('password')"
+        >
+        <app-field-errors
+            [formGroupRef]="loginFormGroup"
+            fieldName="password"
+            *ngIf="validateField('password')"
+        ></app-field-errors>
+    </div>
+
+    <div class="form-group">
+        <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="loginFormGroup.invalid"
+        >
+            Login
+        </button>
+    </div>
+
+</form>

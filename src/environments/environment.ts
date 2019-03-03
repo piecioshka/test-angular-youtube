@@ -5,5 +5,5 @@
 
 export const environment = {
     production: false,
-    backendURL: 'http://localhost:4200/assets/videos.json'
+    moviesUrl: 'http://localhost:4200/assets/movies.json'
 };

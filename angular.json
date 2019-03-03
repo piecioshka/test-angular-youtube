@@ -25,7 +25,9 @@
                         "styles": [
                             "src/styles.css"
                         ],
-                        "scripts": []
+                        "scripts": [
+                          "./node_modules/intersection-observer/intersection-observer.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
@@ -58,7 +60,8 @@
                                     "replace": "src/environments/environment.ts",
                                     "with": "src/environments/environment.staging.ts"
                                 }
-                            ]
+                            ],
+                            "outputHashing": "all"
                         }
                     }
                 },

@@ -1,0 +1,47 @@
+<app-breadcrumb
+    pageName="Film"
+></app-breadcrumb>
+
+<p
+    *ngIf="!movie"
+    class="alert alert-info"
+    role="alert"
+>
+    Trwa pobieranie danych na temat wybranego filmu...
+</p>
+
+<div
+    *ngIf="movie"
+    class="row"
+>
+    <div class="col-3">
+        <app-image
+            class="img-thumbnail rounded float-left"
+            [src]="movie.thumb_url"
+        ></app-image>
+    </div>
+
+    <div class="col-5">
+        <h2>
+            {{ movie.title }}
+            <small *ngIf="movie.year">
+                ( {{ movie.year }} )
+            </small>
+        </h2>
+
+        <p *ngIf="movie.duration">
+            Czas trwania: {{ movie.duration }} minut
+        </p>
+
+        <p>
+            {{ movie.description }}
+        </p>
+    </div>
+
+    <div class="col-4">
+        <iframe
+            class="row"
+            [src]="getVideoUrl()"
+        ></iframe>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<p
+    *ngIf="!movies"
+    class="alert alert-info"
+    role="alert"
+>
+    Trwa pobieranie filmów...
+</p>
+
+<div
+    *ngIf="movies?.length === 0"
+    class="alert alert-warning"
+    role="alert"
+>
+    <h2>Ups...</h2>
+
+    <p>Lista filmów jest pusta!</p>
+</div>
+
+<div class="row">
+    <div
+        *ngIf="movies?.length > 0"
+        class="col-12 text-center"
+    >
+        <button
+            (click)="sortAscending()"
+            class="badge badge-warning small mr-1"
+        >
+            Alfabetycznie
+        </button>
+
+        <button
+            (click)="sortDescending()"
+            class="badge badge-info small"
+        >
+            Odwrotnie
+        </button>
+    </div>
+</div>
+
+<div id="movie-list">
+    <ul class="list-unstyled d-inline-flex flex-wrap">
+        <li
+            *ngFor="let movie of movies | paginate: { itemsPerPage: 3, currentPage: page }"
+            class="m-1"
+        >
+            <app-movie-list-item [movie]="movie"></app-movie-list-item>
+        </li>
+    </ul>
+</div>
+
+<div class="text-center">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

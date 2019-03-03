@@ -1,0 +1,33 @@
+<ng-container *ngIf="movie">
+    <div class="card">
+        <a [routerLink]="['/movies/' + movie.id]">
+            <app-image
+                class="card-img-top"
+                [src]="movie.thumb_url"
+            ></app-image>
+        </a>
+
+        <div class="card-body">
+            <h3 class="card-title">
+                {{ movie.title }}
+                <small *ngIf="movie.year">( {{ movie.year }} )</small>
+            </h3>
+
+            <p
+                *ngIf="movie.duration"
+                class="card-text"
+            >
+                Czas trwania: {{ movie.duration }} minut
+            </p>
+
+            <p>{{ movie.description }}</p>
+
+            <a
+                [routerLink]="['/movies/' + movie.id]"
+                class="btn btn-primary"
+            >
+                Zobacz profil
+            </a>
+        </div>
+    </div>
+</ng-container>

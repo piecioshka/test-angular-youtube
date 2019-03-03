@@ -27,7 +27,7 @@
     + [ ] TE: Spr. czy kiedy podamy nieznany ID filmu, to czy zostaniemy przekierowani na stronę 404
 * :white_check_mark: Wyszukać film po tytule
     + [ ] TE: Spr. czy kiedy podamy nieznaną nazwę filmu, to czy wyświetli się komunikat z brakiem znalezionych filmów
-    + [ ] TE: Spr. czy po wpisaniu nazwy istniejącgo filmu, to czy zostanie on wyświetlony na liście z filmami
+    + [ ] TE: Spr. czy po wpisaniu nazwy istniejącego filmu, to czy zostanie on wyświetlony na liście z filmami
 * :white_check_mark: Ustawić autofocus na polu wyszukiwania
     + [ ] TE: Spr. czy po wejściu do aplikacji jest od razu ustawiony focus
 * :white_check_mark: Udostępnić możliwość sortowania listy filmów
@@ -48,21 +48,119 @@
 
 ## Krok po kroku 👣
 
-### 1. Setup z Angular CLI
+### 0. Instalacja `Angular CLI`
 
 <details>
 
 * `npm install -g @angular/cli`
-* `ng new NAZWA_PROJEKTU`
-* Ustawić tytuł strony: `YouTube`
-* Ustawić opis strony: `Portal z filmami`
-* `npm start`
+
+</details>
+
+### 1. Stworzenie projektu
+
+<details>
+
+* Create directory:
+
+    ```bash
+    mkdir test-angular-youtube
+    ```
+
+* Enter to new directory
+
+    ```bash
+    cd test-angular-youtube
+    ```
+
+* Generate an app
+
+    ```bash
+    ng new test-angular-youtube --directory . --minimal --routing --style css
+    ```
+
+</details>
+
+### 2. Dodanie CSS Framework - [Bootstrap](https://getbootstrap.com/)
+
+<details>
+
+* Install `bootstrap` from npm by command
+
+    ```bash
+    npm i bootstrap
+    ```
+
+* Add new record in `angular.json` -> `projects/movies/architect/build/options/styles`
+
+    ```text
+    "node_modules/bootstrap/dist/css/bootstrap.css"
+    ```
+
+    WARNING: Restart server (`ng serve`) after change configuration file
+
+* Use widgets:
+    + `card` in `MovieListItemComponent`
+    + `media object` in `MovieProfileComponent`
 
 </details>
 
 ### 2. Strona z listą filmów
 
 <details>
+
+* Create files:
+    + `src/app/app.components.html`
+    + `src/app/app.components.css`
+* In `src/app/app.components.ts` change in decorator metadata:
+    + `template` -> `templateUrl`
+    + `styles` -> `stylesUrl`
+* Put paths into above props.
+* Generate components:
+
+    ```bash
+    ng generate component page-home --spec false
+    ng generate component page-movie-profile --spec false
+    ng generate component movie-list --spec false
+    ng generate component movie-list-item --spec false
+    ng generate component movie-profile --spec false
+    ```
+
+* Create `src/app/components/` and put all components there
+* Create `src/app/components/app/` and put all files with prefix `app.component`
+* Build routing in `src/app/app-routing.module.ts`
+    + '' = PageHomeComponent
+    + 'movies/:id' = PageMovieProfileComponent
+
+* Add link into main header which should redirect to home page
+* Create file `src/assets/movies.json`
+* Generate interfaces:
+
+    ```bash
+    ng generate interface movie
+    ng generate interface movies
+    ```
+
+* Create directory to group interfaces in one place
+* Rename interfaces:
+    + `movie.ts` -> `movie.interface.ts`
+    + `movies.ts` -> `movies.interface.ts`
+* Create a component structure as below:
+
+    ![](docs/scheme.png)
+
+* Generate services:
+
+    ```bash
+    ng generate service movies --spec false
+    ```
+
+* Create (in service) methods:
+    + `getMovies`
+    + `getMovieById`
+
+* Inject service `HttpClient` to make HTTP request to `/assets/movies.json` file
+
+    ![](docs/architecture.png)
 
 </details>
 
@@ -109,6 +207,19 @@
 
 </details>
 
+## Deployment — GitHub
+
+<details>
+
+* Add new task in `package.json` -> `scripts`
+
+    ```text
+    "predeploy": "ng build --base-href=/warsawjs-workshop-29-movies/"
+    "deploy": "NODE_DEBUG=gh-pages gh-pages -d dist/movies/"
+    ```
+
+</details>
+
 ### 9. [Bonus] Lazy loading
 
 <details>
@@ -117,17 +228,20 @@
 * Stworzyć nowy komponent: `ng g component static/author-list --module static`
 * `app.component.html`: Dodać link do `/authors` w stopce
 * `app-routing.module.ts`: Stworzyć nowy route:
+
     ```js
     {
         path: 'authors',
         loadChildren: './static/static.module#StaticModule'
     }
     ```
+
 * `static/static-routing.module.ts`: Stworzyć nowy route:
+
     ```js
     {
         path: '',
-        component: AuthorListComponent
+        component: PageAuthorListComponent
     }
     ```
 
@@ -138,10 +252,10 @@
 <details>
 
 * Wykorzystaj źródła, aby zapoznać się z tworzeniem fake-owych danych
-    + http://json-schema-faker.js.org/ - narzędzie, które buduje losowe dane w JSON
-    + http://json-schema.org - specyfikacja budowania
-    + https://chancejs.com/ - biblioteka zwraca losowe dane w odpowiednim formacie
-    + https://github.com/marak/Faker.js/ - budowanie wielu losowych danych
+    + <http://json-schema-faker.js.org/> - narzędzie, które buduje losowe dane w JSON
+    + <http://json-schema.org> - specyfikacja budowania
+    + <https://chancejs.com/> - biblioteka zwraca losowe dane w odpowiednim formacie
+    + <https://github.com/marak/Faker.js/> - budowanie wielu losowych danych
 * Stworzyć dwa polecenia:
     + `npm run build:mock` — polecenie powinno generować plik na podst. JSON Schema
     + `npm run start:mock` — polecenie powinno uruchomić `json-server`
@@ -169,8 +283,9 @@
     + `compilerOptions`
         `"module": "commonjs"`
     + `angularCompilerOptions`
-        `"entryModule": "app/app.server.module#AppServerModule"`
+        `"entryModule": "app/core/app.server.module#AppServerModule"`
 * `angular.json`: dodać w sekcji `architect`
+
     ```json
     "server": {
         "builder": "@angular-devkit/build-angular:server",
@@ -181,12 +296,13 @@
         }
     }
     ```
+
 * Stwórz `server.ts` w katalogu głównym o treści takiej jak ost. listing
-    w punkcie 4. https://angular.io/guide/universal#step-4-set-up-a-server-to-run-universal-bundles
+    w punkcie 4. <https://angular.io/guide/universal#step-4-set-up-a-server-to-run-universal-bundles>
 * Stwórz `webpack.server.config.js` w katalogu głównym o treści jak w punkcie 5.
-    https://angular.io/guide/universal#step-5-pack-and-run-the-app-on-the-server
+    <https://angular.io/guide/universal#step-5-pack-and-run-the-app-on-the-server>
 * Dodać zadanie do `package.json` takie, które są zdefiniowane w:
-    https://angular.io/guide/universal#creating-scripts
+    <https://angular.io/guide/universal#creating-scripts>
 * `angular.json`: Zamienić:
     + `projects/test-angular-youtube/architect/build/options/outputPath` na `dist/browser`
     + `projects/test-angular-youtube/architect/server/options/outputPath` na `dist/server`

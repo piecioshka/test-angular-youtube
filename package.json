@@ -4,24 +4,32 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
+        "clear": "rm -rf dist/",
+        "clear:all": "rm -rf node_modules/ && npm run clear",
+
         "ng": "ng",
-        "start": "ng serve",
-        "start:staging": "http-server dist/browser/ -d false -g",
-        "build": "ng build --base-href /test-angular-youtube/",
-        "build:staging": "ng build --base-href /test-angular-youtube/ --configuration=staging",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "clear": "rm -rf dist/",
-        "clear:all": "rm -rf node_modules/ && npm run clear",
+
+        "build": "ng build --base-href /test-angular-youtube/",
+        "start": "ng serve",
+
+        "build:staging": "ng build --base-href /test-angular-youtube/ --configuration=staging",
+        "start:staging": "http-server dist/browser/ -d false -g",
+
         "predeploy:github": "npm run build:staging",
         "deploy:github": "cross-env NODE_DEBUG=gh-pages gh-pages -d dist/browser/",
+
         "heroku-postbuild": "npm run build:ssr",
         "deploy:heroku": "git push heroku master -f",
+
         "build:mock": "node data/build-database.js",
         "start:mock": "node data/start-database.js",
+
         "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
         "serve:ssr": "node dist/server.js",
+
         "build:client-and-server-bundles": "ng build --prod && ng run test-angular-youtube:server",
         "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
     },
@@ -40,6 +48,7 @@
         "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
         "core-js": "^2.6.1",
         "http-server": "^0.11.1",
+        "intersection-observer": "^0.5.1",
         "ngx-pagination": "^3.2.1",
         "rxjs": "^6.3.3",
         "ts-loader": "^5.3.2",

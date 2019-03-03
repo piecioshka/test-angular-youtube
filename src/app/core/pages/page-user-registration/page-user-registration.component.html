@@ -1,0 +1,136 @@
+<app-breadcrumb
+    pageName="Rejestracja"
+></app-breadcrumb>
+
+<div class="row">
+    <!-- <pre>{{ userRegistrationForm.value | json }}</pre> -->
+    <!-- <pre>{{ userRegistrationForm.form.errors }}</pre> -->
+</div>
+
+<div class="row">
+    <p>
+        If you have account
+        <a routerLink="/user/login">Try login</a>
+    </p>
+</div>
+
+<div class="row">
+    <form
+        #userRegistrationForm="ngForm"
+        class="col-md-7"
+        (ngSubmit)="submit(userRegistrationForm.value)"
+        novalidate
+    >
+        <div class="form-group">
+            <label>
+                Username
+                <sup class="text-danger">*</sup>
+            </label>
+            <input
+                #username="ngModel"
+                [(ngModel)]="userModel.username"
+                required
+                type="text"
+                class="form-control"
+                [class.is-invalid]="username.invalid && username.touched"
+                name="username"
+                maxlength="3"
+                minlength="2"
+            >
+            <div
+                class="text-danger"
+                *ngIf="username.touched"
+            >
+                <small *ngIf="username.errors?.required">Username field is required</small>
+                <small *ngIf="username.errors?.minlength">Username length is to small</small>
+                <small *ngIf="username.errors?.maxlength">Username length is to big</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                E-mail
+                <sup class="text-danger">*</sup>
+            </label>
+            <input
+                #email="ngModel"
+                [(ngModel)]="userModel.email"
+                required
+                type="email"
+                class="form-control"
+                [class.is-invalid]="email.invalid && email.touched"
+                name="email"
+            >
+            <small
+                class="text-danger"
+                *ngIf="email.invalid && email.touched"
+            >
+                Email field is required
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label>
+                Password
+                <sup class="text-danger">*</sup>
+            </label>
+            <input
+                #password="ngModel"
+                [(ngModel)]="userModel.password"
+                required
+                type="text"
+                class="form-control"
+                [class.is-invalid]="password.invalid && password.touched"
+                name="password"
+            >
+            <small
+                class="text-danger"
+                *ngIf="password.invalid && password.touched"
+            >
+                Password field is required
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label>
+                Sex
+                <sup class="text-danger">*</sup>
+            </label>
+            <select
+                #sex="ngModel"
+                [(ngModel)]="userModel.sex"
+                required
+                class="form-control"
+                [class.is-invalid]="sex.invalid && sex.touched"
+                name="sex"
+            >
+                <option value>Select</option>
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+            </select>
+            <small
+                class="text-danger"
+                *ngIf="sex.invalid && sex.touched"
+            >
+                Sex field is required
+            </small>
+        </div>
+
+        <div class="form-group form-inline">
+            <button
+                type="submit"
+                class="btn btn-primary mr-1"
+                [disabled]="userRegistrationForm.invalid"
+            >
+                Submit
+            </button>
+
+            <button
+                type="reset"
+                class="btn btn-danger"
+            >
+                Reset
+            </button>
+        </div>
+    </form>
+</div>

@@ -20,7 +20,7 @@ export class SearchFormComponent implements OnInit {
         if (!phrase) {
             return;
         }
-        this.router.navigateByUrl(`/video-search/${phrase}`);
+        this.router.navigateByUrl(`/search/${phrase}`);
     }
 
 }
