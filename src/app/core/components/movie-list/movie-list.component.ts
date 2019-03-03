@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { IMovie } from '../../interfaces/movie.interface';
 import { IMovieList } from '../../interfaces/movie-list.interface';
@@ -7,11 +7,12 @@ import { IMovieList } from '../../interfaces/movie-list.interface';
     selector: 'app-movie-list',
     templateUrl: './movie-list.component.html',
     styleUrls: ['./movie-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MovieListComponent {
 
-    public page = 1;
-
+    @Input() perPage = 6;
+    @Input() page = 1;
     @Input() movies: IMovieList = null;
 
     public sortAscending() {
@@ -32,6 +33,13 @@ export class MovieListComponent {
             return -1;
         }
         return 0;
+    }
+
+    public get shouldDisplayPagination() {
+        if (!this.movies) {
+            return false;
+        }
+        return this.movies.length > this.perPage;
     }
 
 }

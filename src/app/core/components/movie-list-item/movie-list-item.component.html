@@ -10,7 +10,7 @@
         <div class="card-body">
             <h3 class="card-title">
                 {{ movie.title }}
-                <small *ngIf="movie.year">( {{ movie.year }} )</small>
+                <small *ngIf="movie.year">({{ movie.year }})</small>
             </h3>
 
             <p
@@ -19,8 +19,6 @@
             >
                 Czas trwania: {{ movie.duration }} minut
             </p>
-
-            <p>{{ movie.description }}</p>
 
             <a
                 [routerLink]="['/movies/' + movie.id]"

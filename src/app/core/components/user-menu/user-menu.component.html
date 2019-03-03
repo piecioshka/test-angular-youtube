@@ -1,26 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <span
-        class="navbar-brand"
-        routerLink="/"
-    >
-        a'la YouTube
-    </span>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark flex-row-reverse">
     <div *ngIf="!userIsLogged">
-        <ul>
-            <li>
-                <a routerLink="/user/register">Register</a>
+        <ul class="nav">
+            <li class="nav-item pr-2">
+                <a
+                    class="btn btn-secondary btn-sm"
+                    routerLink="/user/register"
+                >
+                    Register
+                </a>
             </li>
-            <li>
-                <a routerLink="/user/login">Login</a>
+            <li class="nav-item">
+                <a
+                    class="btn btn-secondary btn-sm"
+                    routerLink="/user/login"
+                >
+                    Login
+                </a>
             </li>
         </ul>
     </div>
 
     <div *ngIf="userIsLogged">
-        <ul>
-            <li>
-                <a routerLink="/user/logout">Logout</a>
+        <ul class="nav">
+            <li class="nav-item pr-2">
+                <span class="badge badge-warning">
+                    {{ userName }}
+                </span>
+            </li>
+            <li class="nav-item">
+                <a
+                    class="btn btn-secondary btn-sm"
+                    routerLink="/user/logout"
+                >
+                    Logout
+                </a>
             </li>
         </ul>
     </div>

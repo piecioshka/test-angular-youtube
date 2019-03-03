@@ -38,16 +38,16 @@
 </div>
 
 <div id="movie-list">
-    <ul class="list-unstyled d-inline-flex flex-wrap">
+    <ul class="list-unstyled d-flex flex-wrap justify-content-between">
         <li
-            *ngFor="let movie of movies | paginate: { itemsPerPage: 3, currentPage: page }"
-            class="m-1"
+            *ngFor="let movie of movies | paginate: { itemsPerPage: perPage, currentPage: page }"
+            class="mb-4"
         >
             <app-movie-list-item [movie]="movie"></app-movie-list-item>
         </li>
     </ul>
 </div>
 
-<div class="text-center">
+<div class="text-center" *ngIf="shouldDisplayPagination">
     <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div>

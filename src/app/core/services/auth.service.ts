@@ -20,8 +20,16 @@ export class AuthService {
         const status = this.usersStore.check(userCredentials);
         if (status) {
             this.localStorageService.create('user-logged', true);
+            this.localStorageService.create('user', { login: userCredentials.email });
         }
         return status;
+    }
+
+    getUserName(): string {
+        const user = this.localStorageService.read('user');
+        if (typeof user === 'object' && user != null && user.hasOwnProperty('login')) {
+            return user.login;
+        }
     }
 
     isUserLogged(): boolean {
@@ -30,7 +38,9 @@ export class AuthService {
     }
 
     destroyUserSession(): any {
-        return this.localStorageService.delete('user-logged');
+        this.localStorageService.delete('user-logged');
+        this.localStorageService.delete('user');
+        return true;
     }
 
     // Rejestracja użytkownika

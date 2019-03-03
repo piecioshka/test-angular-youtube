@@ -1,10 +1,11 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            Start
-        </li>
+        <li class="breadcrumb-item">Start</li>
 
-        <li class="breadcrumb-item active">
+        <li
+            class="breadcrumb-item active"
+            *ngIf="pageName"
+        >
             {{ pageName }}
         </li>
     </ol>

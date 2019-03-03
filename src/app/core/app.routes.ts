@@ -37,8 +37,7 @@ export const routes: Routes = [
                 path: ':id',
                 component: PageMovieProfileComponent
             }
-        ],
-        canActivate: [AuthGuard]
+        ]
     },
     {
         path: 'search',
@@ -73,6 +72,7 @@ export const routes: Routes = [
                 path: '',
                 component: PageAuthorListComponent
             }
-        ]
+        ],
+        canActivate: [AuthGuard]
     }
 ];

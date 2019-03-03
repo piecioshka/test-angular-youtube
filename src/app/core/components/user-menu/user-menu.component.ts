@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
 export class UserMenuComponent implements OnInit {
 
     userIsLogged = false;
+    userName: string = null;
 
     constructor(
         private router: Router,
@@ -29,6 +30,7 @@ export class UserMenuComponent implements OnInit {
             )
             .subscribe(() => {
                 this.userIsLogged = this.auth.isUserLogged();
+                this.userName = this.auth.getUserName();
             });
     }
 
