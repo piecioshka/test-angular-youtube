@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SharedModule } from '../../../shared/shared.module';
-import { PageAuthorListComponent } from './author-list.component';
+import { PageAuthorListComponent } from './page-author-list.component';
 
 describe('PageAuthorListComponent', () => {
     let component: PageAuthorListComponent;
