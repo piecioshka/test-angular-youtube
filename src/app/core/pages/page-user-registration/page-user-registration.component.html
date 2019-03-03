@@ -1,5 +1,5 @@
 <app-breadcrumb
-    pageName="Rejestracja"
+    [segments]="['Użytkownik', 'Rejestracja']"
 ></app-breadcrumb>
 
 <div class="row">
@@ -8,9 +8,9 @@
 </div>
 
 <div class="row">
-    <p>
-        If you have account
-        <a routerLink="/user/login">Try login</a>
+    <p class="col-md-12">
+        Jeśli masz już konto to
+        <a routerLink="/user/login">Zaloguj się</a>
     </p>
 </div>
 

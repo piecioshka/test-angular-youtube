@@ -16,23 +16,27 @@
     <p>Lista filmów jest pusta!</p>
 </div>
 
-<div class="row">
+<div class="row mb-3">
     <div
         *ngIf="movies?.length > 0"
-        class="col-12 text-center"
+        class="col-12 text-right"
     >
+        <span class="mr-1">
+            Sortowanie:
+        </span>
+
         <button
             (click)="sortAscending()"
-            class="badge badge-warning small mr-1"
+            class="btn btn-outline-primary mr-1"
         >
-            Alfabetycznie
+            🔼
         </button>
 
         <button
             (click)="sortDescending()"
-            class="badge badge-info small"
+            class="btn btn-outline-primary"
         >
-            Odwrotnie
+            🔽
         </button>
     </div>
 </div>

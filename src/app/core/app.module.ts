@@ -22,6 +22,9 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieListItemComponent } from './components/movie-list-item/movie-list-item.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +42,10 @@ import { MovieListItemComponent } from './components/movie-list-item/movie-list-
         UserMenuComponent,
         MenuComponent,
         MovieListComponent,
-        MovieListItemComponent
+        MovieListItemComponent,
+        PageNotFoundComponent,
+        HeaderComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'test-angular-youtube' }),

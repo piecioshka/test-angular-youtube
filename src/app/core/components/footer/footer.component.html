@@ -1,0 +1,8 @@
+<footer class="text-center bg-light py-2 my-4">
+    Copyright 2019 &copy;
+    <a routerLink="/authors">Autorzy</a>
+
+    <span *ngIf="!isAuthorizedUser">
+        (Dostęp tylko dla zalogowanych)
+    </span>
+</footer>

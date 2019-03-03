@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class BreadcrumbComponent {
 
-    @Input() pageName: string = null;
+    @Input() segments: Array<string> = [];
 
 }

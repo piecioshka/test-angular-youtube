@@ -1,5 +1,5 @@
 <app-breadcrumb
-    pageName="Film"
+    [segments]="['Filmy', movie?.title || '...']"
 ></app-breadcrumb>
 
 <p
@@ -14,13 +14,6 @@
     *ngIf="movie"
     class="row"
 >
-    <div class="col-3">
-        <app-image
-            class="img-thumbnail rounded float-left"
-            [src]="movie.thumb_url"
-        ></app-image>
-    </div>
-
     <div class="col-5">
         <h2>
             {{ movie.title }}
@@ -38,7 +31,7 @@
         </p>
     </div>
 
-    <div class="col-4">
+    <div class="col-7">
         <iframe
             class="row"
             [src]="getVideoUrl()"

@@ -12,6 +12,7 @@ import { PageAuthorListComponent } from './pages/page-author-list/page-author-li
 import { PageUserRegistrationComponent } from './pages/page-user-registration/page-user-registration.component';
 import { PageUserLoginComponent } from './pages/page-user-login/page-user-login.component';
 import { PageUserLogoutComponent } from './pages/page-user-logout/page-user-logout.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
     {
@@ -74,5 +75,9 @@ export const routes: Routes = [
             }
         ],
         canActivate: [AuthGuard]
-    }
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
+    },
 ];

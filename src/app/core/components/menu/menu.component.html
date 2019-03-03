@@ -2,30 +2,32 @@
     <ul class="nav">
         <li class="nav-item pr-1">
             <a
-                class="btn btn-secondary"
+                class="btn btn-outline-primary"
                 routerLink="/"
-                routerLinkActive="btn-success"
+                routerLinkActive="btn-primary text-white"
                 [routerLinkActiveOptions]="{ exact: true }"
             >
-                Home
+                Strona główna
             </a>
         </li>
         <li class="nav-item pr-1">
             <a
-                class="btn btn-secondary"
+                class="btn btn-outline-primary"
                 routerLink="/movies"
-                routerLinkActive="btn-success"
+                routerLinkActive="btn-primary text-white"
+                [routerLinkActiveOptions]="{ exact: true }"
             >
-                Movies
+                Filmy
             </a>
         </li>
         <li class="nav-item">
             <a
-                class="btn btn-secondary"
+                class="btn btn-outline-primary"
                 routerLink="/contact"
-                routerLinkActive="btn-success"
+                routerLinkActive="btn-primary text-white"
+                [routerLinkActiveOptions]="{ exact: true }"
             >
-                Contact
+                Kontakt
             </a>
         </li>
     </ul>
