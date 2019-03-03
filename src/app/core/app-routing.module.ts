@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, ExtraOptions } from '@angular/router';
 
 import { routes } from './app.routes';
+import { environment } from 'src/environments/environment';
+
+const options: ExtraOptions = {};
+
+if (environment.enableRoutingHashStrategy) {
+    options.useHash = true;
+}
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, options)
     ],
     exports: [
         RouterModule

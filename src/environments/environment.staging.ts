@@ -1,4 +1,5 @@
 export const environment = {
     production: false,
-    moviesUrl: 'https://piecioshka.github.com/test-angular-youtube/assets/db.json'
+    enableRoutingHashStrategy: true,
+    moviesUrl: 'https://piecioshka.github.io/test-angular-youtube/assets/db.json'
 };

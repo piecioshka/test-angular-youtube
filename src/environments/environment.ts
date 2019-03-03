@@ -5,5 +5,6 @@
 
 export const environment = {
     production: false,
+    enableRoutingHashStrategy: true,
     moviesUrl: 'http://localhost:4200/assets/movies.json'
 };
