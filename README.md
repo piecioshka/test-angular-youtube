@@ -280,25 +280,48 @@
 
 <details>
 
-* `app-routing.module.ts`: Wyłączyć strategię URLi (zakomentować `useHash`)
-* Zainstaluj `npm install --save @angular/platform-server @nguniversal/module-map-ngfactory-loader ts-loader`
-* `app.module.ts`: Użyj funkcji `BrowserModule.withServerTransition({ appId: 'test-angular-youtube' }),`
-* `ng g module AppServer`
-* `app.server.module.ts`:
-    + Dodaj do tablicy `imports`:
+* `app-routing.module.ts`:
+    + Wyłączyć strategię URLi (zakomentować `useHash`)
+* Zainstalować zależności:
+
+    ```bash
+    npm install --save @angular/http \
+        @angular/platform-server \
+        @nguniversal/module-map-ngfactory-loader \
+        ts-loader
+    ```
+
+    oraz
+
+    ```bash
+    npm install -D webpack-cli
+    ```
+
+* `app.module.ts`:
+    + Użyć funkcji `BrowserModule.withServerTransition({ appId: 'test-angular-youtube' }),`
+* Wygenerować nowy moduł:
+
+    ```bash
+    ng g module app-server
+    ```
+
+* `app-server.module.ts`:
+    + Dodać do tablicy `imports`:
         - `AppModule`
-        - `ServerModule`
-        - `ModuleMapLoaderModule`
-    + Dodaj do tablicy `bootstrap`:
+        - `ServerModule` z `@angular/platform-server`
+        - `ModuleMapLoaderModule` z `@nguniversal/module-map-ngfactory-loader`
+    + Dodać do tablicy `bootstrap`:
         - `AppComponent`
-* `main.module.ts`: Weksportuj `AppServerModule`
-* Skopiuj `tsconfig.app.json` do `tsconfig.server.json`
-* `tsconfig.server.json`
+* Obok pliku `main.ts` stworzyć plik `main.server.ts`:
+* `main.server.ts`:
+    + Weksportować `AppServerModule`
+* Skopiować `tsconfig.app.json` do `tsconfig.server.json`
+* W pliku `tsconfig.server.json`:
     + `compilerOptions`
-        `"module": "commonjs"`
-    + `angularCompilerOptions`
-        `"entryModule": "app/core/app.server.module#AppServerModule"`
-* `angular.json`: dodać w sekcji `architect`
+        - Dodać `"module": "commonjs"`
+    + Stworzyć sekcję `angularCompilerOptions` i w niej dodać
+        `"entryModule": "app/core/app-server.module#AppServerModule"`
+* `angular.json`: Dodać w sekcji `architect`
 
     ```json
     "server": {
@@ -311,17 +334,27 @@
     }
     ```
 
-* Stwórz `server.ts` w katalogu głównym o treści takiej jak ost. listing
-    w punkcie 4. <https://angular.io/guide/universal#step-4-set-up-a-server-to-run-universal-bundles>
-* Stwórz `webpack.server.config.js` w katalogu głównym o treści jak w punkcie 5.
-    <https://angular.io/guide/universal#step-5-pack-and-run-the-app-on-the-server>
-* Dodać zadanie do `package.json` takie, które są zdefiniowane w:
-    <https://angular.io/guide/universal#creating-scripts>
+* `server.ts`
+    + Stworzyć plik w katalogu głównym repozytorium o treści takiej jak
+        w ostatnim listing w punkcie 4.
+        <https://angular.io/guide/universal#step-4-set-up-a-server-to-run-universal-bundles>
+* `webpack.server.config.js`
+    + Stworzyć plik w katalogu głównym o treści jak w punkcie 5.
+        <https://angular.io/guide/universal#step-5-pack-and-run-the-app-on-the-server>
+    + Dodać nową opcję: `mode: "none",`
+* `package.json`
+    + Dodać zadania zdefiniowane w: <https://angular.io/guide/universal#creating-scripts>
+    + W zadaniu `build:client-and-server-bundles`
+        - Zmienić `my-project` na `test-angular-youtube`
+        - W tym samym zadaniu, usunąć `:production` z końca polecenia
 * `angular.json`: Zamienić:
-    + `projects/test-angular-youtube/architect/build/options/outputPath` na `dist/browser`
-    + `projects/test-angular-youtube/architect/server/options/outputPath` na `dist/server`
-* `server.ts`: Zmienić `main.bundle` na `main` w okolicach 25 linijki
-* Uruchom `npm run build:ssr && npm run serve:ssr`
+    + w `projects/test-angular-youtube/architect/build/options/`
+        - klucz `outputPath` na `dist/browser`
+    + w `projects/test-angular-youtube/architect/server/options/`
+        - klucz `outputPath` na `dist/server`
+* `server.ts`: Zmienić
+    + `server/main` na `dist/server/main` w okolicach 25 linijki
+* Uruchomić `npm run build:ssr && npm run serve:ssr`
 
 </details>
 
