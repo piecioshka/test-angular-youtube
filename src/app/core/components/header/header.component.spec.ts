@@ -1,14 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { HeaderComponent } from './header.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('HeaderComponent', () => {
-    let component: HeaderComponent;
     let fixture: ComponentFixture<HeaderComponent>;
+    let component: HeaderComponent;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HeaderComponent]
+            imports: [
+                SharedModule,
+                RouterTestingModule
+            ],
+            declarations: [
+                HeaderComponent,
+            ]
         })
             .compileComponents();
     }));
@@ -16,10 +24,14 @@ describe('HeaderComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(HeaderComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        fixture.nativeElement.remove();
     });
 
     it('should create', () => {
+        fixture.detectChanges();
         expect(component).toBeTruthy();
     });
 });

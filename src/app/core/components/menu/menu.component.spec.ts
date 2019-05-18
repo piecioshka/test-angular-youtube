@@ -4,8 +4,8 @@ import { MenuComponent } from './menu.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MenuComponent', () => {
-    let component: MenuComponent;
     let fixture: ComponentFixture<MenuComponent>;
+    let component: MenuComponent;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -20,10 +20,14 @@ describe('MenuComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(MenuComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        fixture.nativeElement.remove();
     });
 
     it('should create', () => {
+        fixture.detectChanges();
         expect(component).toBeTruthy();
     });
 });

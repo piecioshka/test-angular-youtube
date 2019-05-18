@@ -4,13 +4,17 @@ import { SharedModule } from '../../../shared/shared.module';
 import { PageAuthorListComponent } from './page-author-list.component';
 
 describe('PageAuthorListComponent', () => {
-    let component: PageAuthorListComponent;
     let fixture: ComponentFixture<PageAuthorListComponent>;
+    let component: PageAuthorListComponent;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [SharedModule],
-            declarations: [PageAuthorListComponent]
+            imports: [
+                SharedModule
+            ],
+            declarations: [
+                PageAuthorListComponent
+            ]
         })
             .compileComponents();
     }));
@@ -18,10 +22,14 @@ describe('PageAuthorListComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(PageAuthorListComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        fixture.nativeElement.remove();
     });
 
     it('should create', () => {
+        fixture.detectChanges();
         expect(component).toBeTruthy();
     });
 });

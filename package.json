@@ -6,30 +6,23 @@
     "scripts": {
         "clear": "rm -rf dist/",
         "clear:all": "rm -rf node_modules/ && npm run clear",
-
         "ng": "ng",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-
+        "protractor": "protractor e2e/protractor.conf.js",
         "build": "ng build --base-href /test-angular-youtube/",
         "start": "ng serve",
-
         "build:staging": "ng build --base-href /test-angular-youtube/ --configuration=staging",
         "start:staging": "ng serve --configuration=staging",
-
         "build:mock": "node data/build-database.js",
         "start:mock": "node data/start-database.js",
-
         "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
         "serve:ssr": "node dist/server.js",
-
         "build:client-and-server-bundles": "ng build --prod && ng run test-angular-youtube:server",
         "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
-
         "predeploy:github": "npm run build:staging; dos2unix dist/browser/*",
         "deploy:github": "cross-env NODE_DEBUG=gh-pages gh-pages -d dist/browser/",
-
         "heroku-postbuild": "npm run build:ssr",
         "deploy:heroku": "git push heroku master -f"
     },

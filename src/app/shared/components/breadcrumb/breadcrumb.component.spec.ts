@@ -3,8 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BreadcrumbComponent } from './breadcrumb.component';
 
 describe('BreadcrumbComponent', () => {
-    let component: BreadcrumbComponent;
     let fixture: ComponentFixture<BreadcrumbComponent>;
+    let component: BreadcrumbComponent;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -16,10 +16,14 @@ describe('BreadcrumbComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(BreadcrumbComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        fixture.nativeElement.remove();
     });
 
     it('should create', () => {
+        fixture.detectChanges();
         expect(component).toBeTruthy();
     });
 });

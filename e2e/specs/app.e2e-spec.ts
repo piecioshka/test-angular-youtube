@@ -1,14 +1,14 @@
-import { AppPage } from './app.po';
+import { HomePage } from '../page-objects/app.po';
 
 describe('workspace-project App', () => {
-    let page: AppPage;
+    let page: HomePage;
 
     beforeEach(() => {
-        page = new AppPage();
+        page = new HomePage();
+        page.navigateTo();
     });
 
     it('should display project name', () => {
-        page.navigateTo();
         expect(page.getTitleText()).toEqual('YouTube');
     });
 });

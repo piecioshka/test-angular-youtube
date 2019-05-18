@@ -18,10 +18,14 @@ describe('SearchFormComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(SearchFormComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        fixture.nativeElement.remove();
     });
 
     it('should create', () => {
+        fixture.detectChanges();
         expect(component).toBeTruthy();
     });
 });

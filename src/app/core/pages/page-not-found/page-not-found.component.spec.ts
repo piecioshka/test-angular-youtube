@@ -1,14 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageNotFoundComponent } from './page-not-found.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('PageNotFoundComponent', () => {
-    let component: PageNotFoundComponent;
     let fixture: ComponentFixture<PageNotFoundComponent>;
+    let component: PageNotFoundComponent;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [PageNotFoundComponent]
+            imports: [
+                SharedModule
+            ],
+            declarations: [
+                PageNotFoundComponent,
+            ]
         })
             .compileComponents();
     }));
@@ -16,10 +22,14 @@ describe('PageNotFoundComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(PageNotFoundComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        fixture.nativeElement.remove();
     });
 
     it('should create', () => {
+        fixture.detectChanges();
         expect(component).toBeTruthy();
     });
 });

@@ -4,26 +4,30 @@ import { PageUserLogoutComponent } from './page-user-logout.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PageUserLogoutComponent', () => {
-  let component: PageUserLogoutComponent;
-  let fixture: ComponentFixture<PageUserLogoutComponent>;
+    let fixture: ComponentFixture<PageUserLogoutComponent>;
+    let component: PageUserLogoutComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [ PageUserLogoutComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                RouterTestingModule
+            ],
+            declarations: [PageUserLogoutComponent]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageUserLogoutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PageUserLogoutComponent);
+        component = fixture.componentInstance;
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    afterEach(() => {
+        fixture.nativeElement.remove();
+    });
+
+    it('should create', () => {
+        fixture.detectChanges();
+        expect(component).toBeTruthy();
+    });
 });

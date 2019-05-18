@@ -4,26 +4,30 @@ import { UserMenuComponent } from './user-menu.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UserMenuComponent', () => {
-  let component: UserMenuComponent;
-  let fixture: ComponentFixture<UserMenuComponent>;
+    let fixture: ComponentFixture<UserMenuComponent>;
+    let component: UserMenuComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [ UserMenuComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                RouterTestingModule
+            ],
+            declarations: [UserMenuComponent]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UserMenuComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(UserMenuComponent);
+        component = fixture.componentInstance;
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    afterEach(() => {
+        fixture.nativeElement.remove();
+    });
+
+    it('should create', () => {
+        fixture.detectChanges();
+        expect(component).toBeTruthy();
+    });
 });

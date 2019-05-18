@@ -3,8 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ImageComponent } from './image.component';
 
 describe('ImageComponent', () => {
-    let component: ImageComponent;
     let fixture: ComponentFixture<ImageComponent>;
+    let component: ImageComponent;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -16,10 +16,14 @@ describe('ImageComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(ImageComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        fixture.nativeElement.remove();
     });
 
     it('should create', () => {
+        fixture.detectChanges();
         expect(component).toBeTruthy();
     });
 });

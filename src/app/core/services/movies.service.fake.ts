@@ -2,7 +2,7 @@ import { of } from 'rxjs';
 
 import { IMovie } from '../interfaces/movie.interface';
 
-const movie: IMovie = {
+export const movie: IMovie = {
     id: 'fake-id',
     title: 'fake-title',
     description: 'fake-description',
@@ -14,11 +14,15 @@ const movie: IMovie = {
     thumb_url: 'fake-thumb_url',
     movie_url: 'fake-movie_url',
 };
-const movies = [movie, movie, movie];
+
+export const movies = [movie, movie, movie];
 
 export class FakeMoviesService {
     fetchMovies() {
         return of(movies);
+    }
+    async fetchMoviesPromise() {
+        return movies;
     }
     async fetchMovieById() {
         return movie;

@@ -4,27 +4,31 @@ import { FieldErrorsComponent } from './field-errors.component';
 import { FormGroup, FormControl } from '@angular/forms';
 
 describe('FieldErrorsComponent', () => {
-  let component: FieldErrorsComponent;
-  let fixture: ComponentFixture<FieldErrorsComponent>;
+    let fixture: ComponentFixture<FieldErrorsComponent>;
+    let component: FieldErrorsComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ FieldErrorsComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [FieldErrorsComponent]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(FieldErrorsComponent);
-    component = fixture.componentInstance;
-    component.formGroupRef = new FormGroup({
-      fake: new FormControl('')
+    beforeEach(() => {
+        fixture = TestBed.createComponent(FieldErrorsComponent);
+        component = fixture.componentInstance;
     });
-    component.fieldName = 'fake';
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    afterEach(() => {
+        fixture.nativeElement.remove();
+    });
+
+    it('should create', () => {
+        component.formGroupRef = new FormGroup({
+            fake: new FormControl('')
+        });
+        component.fieldName = 'fake';
+        fixture.detectChanges();
+        expect(component).toBeTruthy();
+    });
 });

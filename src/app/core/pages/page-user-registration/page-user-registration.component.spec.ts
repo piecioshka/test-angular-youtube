@@ -1,18 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PageUserRegistrationComponent } from './page-user-registration.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { PageUserRegistrationComponent } from './page-user-registration.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+
 describe('PageUserRegistrationComponent', () => {
-    let component: PageUserRegistrationComponent;
     let fixture: ComponentFixture<PageUserRegistrationComponent>;
+    let component: PageUserRegistrationComponent;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
                 FormsModule,
-                HttpClientModule
+                HttpClientModule,
+                SharedModule
             ],
             declarations: [PageUserRegistrationComponent]
         })
@@ -22,10 +24,14 @@ describe('PageUserRegistrationComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(PageUserRegistrationComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        fixture.nativeElement.remove();
     });
 
     it('should create', () => {
+        fixture.detectChanges();
         expect(component).toBeTruthy();
     });
 });
