@@ -1,7 +1,8 @@
 # test-angular-youtube
 
 [![dependencies](https://david-dm.org/piecioshka/test-angular-youtube.svg)](https://github.com/piecioshka/test-angular-youtube)
-[![travis](https://img.shields.io/travis/piecioshka/test-angular-youtube.svg)](https://travis-ci.org/piecioshka/test-angular-youtube)
+[![travis-ci](https://api.travis-ci.org/piecioshka/test-angular-youtube.svg?branch=master)](https://travis-ci.org/piecioshka/test-angular-youtube)
+[![circle-ci](https://circleci.com/gh/piecioshka/test-angular-youtube.svg?style=svg)](https://circleci.com/gh/piecioshka/test-angular-youtube)
 [![snyk](https://snyk.io/test/github/piecioshka/test-angular-youtube/badge.svg?targetFile=package.json)](https://snyk.io/test/github/piecioshka/test-angular-youtube?targetFile=package.json)
 
 :ledger: Testowa aplikacja oparta na Angular symulująca portal z filmami.
