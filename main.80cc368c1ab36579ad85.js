@@ -155,7 +155,7 @@ var AppModule = /** @class */ (function () {
                 _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_24__["FooterComponent"]
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"].withServerTransition({ appId: 'test-angular-youtube' }),
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"].withServerTransition({ appId: 'workshop-angular-youtube' }),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
                 _shared_shared_module__WEBPACK_IMPORTED_MODULE_7__["SharedModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
@@ -2281,7 +2281,7 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     enableRoutingHashStrategy: true,
-    moviesUrl: 'https://piecioshka.github.io/test-angular-youtube/assets/movies.json'
+    moviesUrl: 'https://piecioshka.github.io/workshop-angular-youtube/assets/movies.json'
 };
 
 
@@ -2320,10 +2320,10 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/piecioshka/projects/test-angular-youtube/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/piecioshka/projects/workshop-angular-youtube/src/main.ts */"./src/main.ts");
 
 
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.4b822a3d4c32c4492593.js.map
+//# sourceMappingURL=main.80cc368c1ab36579ad85.js.map

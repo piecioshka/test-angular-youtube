@@ -5497,11 +5497,11 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/piecioshka/projects/test-angular-youtube/src/polyfills.ts */"./src/polyfills.ts");
-module.exports = __webpack_require__(/*! /Users/piecioshka/projects/test-angular-youtube/node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js */"./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js");
+__webpack_require__(/*! /Users/piecioshka/projects/workshop-angular-youtube/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /Users/piecioshka/projects/workshop-angular-youtube/node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js */"./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/jit-polyfills.js");
 
 
 /***/ })
 
 },[[1,"runtime"]]]);
-//# sourceMappingURL=polyfills.b99455488e56cf0db048.js.map
+//# sourceMappingURL=polyfills.fa854ae202dcc2a549de.js.map
