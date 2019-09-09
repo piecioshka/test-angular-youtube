@@ -36,7 +36,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # End-to-end tests
-      - run: npm run e2e
+      # - run: npm run e2e
 
       # Unit tests
       - run: npm run test -- --no-progress
