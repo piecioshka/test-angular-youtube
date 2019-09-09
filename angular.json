@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "test-angular-youtube": {
+        "workshop-angular-youtube": {
             "root": "",
             "sourceRoot": "src",
             "projectType": "application",
@@ -68,21 +68,21 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "test-angular-youtube:build"
+                        "browserTarget": "workshop-angular-youtube:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "test-angular-youtube:build:production"
+                            "browserTarget": "workshop-angular-youtube:build:production"
                         },
                         "staging": {
-                            "browserTarget": "test-angular-youtube:build:staging"
+                            "browserTarget": "workshop-angular-youtube:build:staging"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "test-angular-youtube:build"
+                        "browserTarget": "workshop-angular-youtube:build"
                     }
                 },
                 "test": {
@@ -137,7 +137,7 @@
                 }
             }
         },
-        "test-angular-youtube-e2e": {
+        "workshop-angular-youtube-e2e": {
             "root": "e2e/",
             "projectType": "application",
             "prefix": "",
@@ -146,11 +146,11 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "test-angular-youtube:serve"
+                        "devServerTarget": "workshop-angular-youtube:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "test-angular-youtube:serve:production"
+                            "devServerTarget": "workshop-angular-youtube:serve:production"
                         }
                     }
                 },
@@ -166,5 +166,5 @@
             }
         }
     },
-    "defaultProject": "test-angular-youtube"
+    "defaultProject": "workshop-angular-youtube"
 }

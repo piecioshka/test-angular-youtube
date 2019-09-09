@@ -1,21 +1,20 @@
-# test-angular-youtube
+# workshop-angular-youtube
 
-[![dependencies](https://david-dm.org/piecioshka/test-angular-youtube.svg)](https://github.com/piecioshka/test-angular-youtube)
-[![travis-ci](https://api.travis-ci.org/piecioshka/test-angular-youtube.svg?branch=master)](https://travis-ci.org/piecioshka/test-angular-youtube)
-[![circle-ci](https://circleci.com/gh/piecioshka/test-angular-youtube.svg?style=svg)](https://circleci.com/gh/piecioshka/test-angular-youtube)
-[![snyk](https://snyk.io/test/github/piecioshka/test-angular-youtube/badge.svg?targetFile=package.json)](https://snyk.io/test/github/piecioshka/test-angular-youtube?targetFile=package.json)
+[![travis-ci](https://api.travis-ci.org/piecioshka/workshop-angular-youtube.svg?branch=master)](https://travis-ci.org/piecioshka/workshop-angular-youtube)
+[![circle-ci](https://circleci.com/gh/piecioshka/workshop-angular-youtube.svg?style=svg)](https://circleci.com/gh/piecioshka/workshop-angular-youtube)
+[![snyk](https://snyk.io/test/github/piecioshka/workshop-angular-youtube/badge.svg?targetFile=package.json)](https://snyk.io/test/github/piecioshka/workshop-angular-youtube?targetFile=package.json)
 
-:ledger: Testowa aplikacja oparta na Angular symulująca portal z filmami.
+💾 Workshop project — Test Angular app
 
 ## Demo 🎉
 
-* Production: <https://test-angular-youtube.herokuapp.com/>
+* Production: <https://workshop-angular-youtube.herokuapp.com/>
 
     ```bash
     npm run deploy:heroku
     ```
 
-* Staging: <https://piecioshka.github.io/test-angular-youtube/>
+* Staging: <https://piecioshka.github.io/workshop-angular-youtube/>
 
     ```bash
     npm run deploy:github
@@ -67,7 +66,7 @@
 
 ## Krok po kroku 👣
 
-### 0. Instalacja `Angular CLI`
+### Instalacja `Angular CLI`
 
 <details>
 
@@ -75,31 +74,31 @@
 
 </details>
 
-### 1. Stworzenie projektu
+### Stworzenie projektu
 
 <details>
 
 * Create directory:
 
     ```bash
-    mkdir test-angular-youtube
+    mkdir workshop-angular-youtube
     ```
 
 * Enter to new directory
 
     ```bash
-    cd test-angular-youtube
+    cd workshop-angular-youtube
     ```
 
 * Generate an app
 
     ```bash
-    ng new test-angular-youtube --directory . --minimal --routing --style css
+    ng new workshop-angular-youtube --directory . --minimal --routing --style css
     ```
 
 </details>
 
-### 2. Dodanie CSS Framework - [Bootstrap](https://getbootstrap.com/)
+### Dodanie CSS Framework - [Bootstrap](https://getbootstrap.com/)
 
 <details>
 
@@ -123,7 +122,7 @@
 
 </details>
 
-### 3. Strona z listą filmów
+### Strona z listą filmów
 
 <details>
 
@@ -183,37 +182,39 @@
 
 </details>
 
-### 4. Pobieranie dane z serwera (`HttpClientModule`)
+### Pobieranie dane z serwera (`HttpClientModule`)
 
 <details>
 
+* TODO
+
 </details>
 
-### 5. Strona z profilem filmu (routing)
+### Strona z profilem filmu (routing)
 
 <details>
 
+* TODO
+
 </details>
 
-### 6. [Bonus] Zabezpieczenie przed nieznanym identyfikatorem filmu
+### Wyszukiwarka (panel oraz strona)
 
 <details>
 
+* TODO
+
 </details>
 
-### 7. Wyszukiwarka (panel oraz strona)
+### Sortowanie listy filmów
 
 <details>
 
-</details>
-
-### 8. Sortowanie listy filmów
-
-<details>
+* TODO
 
 </details>
 
-### 9. Paginacja (`ngx-pagination`)
+### Paginacja (`ngx-pagination`)
 
 <details>
 
@@ -226,7 +227,7 @@
 
 </details>
 
-### 10. Deployment — GitHub
+### Deployment — GitHub
 
 <details>
 
@@ -239,7 +240,23 @@
 
 </details>
 
-### 11. [Bonus] Lazy loading
+### Deployment — Heroku
+
+<details>
+
+* TODO
+
+</details>
+
+### [Bonus] Zabezpieczenie przed nieznanym identyfikatorem filmu
+
+<details>
+
+* TODO
+
+</details>
+
+### [Bonus] Lazy loading
 
 <details>
 
@@ -266,22 +283,7 @@
 
 </details>
 
-### 12. [Bonus] Serwer zwracający fake-owe dane
-
-<details>
-
-* Wykorzystaj źródła, aby zapoznać się z tworzeniem fake-owych danych
-    + <http://json-schema-faker.js.org/> - narzędzie, które buduje losowe dane w JSON
-    + <http://json-schema.org> - specyfikacja budowania
-    + <https://chancejs.com/> - biblioteka zwraca losowe dane w odpowiednim formacie
-    + <https://github.com/marak/Faker.js/> - budowanie wielu losowych danych
-* Stworzyć dwa polecenia:
-    + `npm run build:mock` — polecenie powinno generować plik na podst. JSON Schema
-    + `npm run start:mock` — polecenie powinno uruchomić `json-server`
-
-</details>
-
-### 13. [Bonus] Server-side rendering ([Angular Universal](https://angular.io/guide/universal))
+### [Bonus] Server-side rendering ([Angular Universal](https://angular.io/guide/universal))
 
 <details>
 
@@ -303,7 +305,7 @@
     ```
 
 * `app.module.ts`:
-    + Użyć funkcji `BrowserModule.withServerTransition({ appId: 'test-angular-youtube' }),`
+    + Użyć funkcji `BrowserModule.withServerTransition({ appId: 'workshop-angular-youtube' }),`
 * Wygenerować nowy moduł:
 
     ```bash
@@ -350,21 +352,15 @@
 * `package.json`
     + Dodać zadania zdefiniowane w: <https://angular.io/guide/universal#creating-scripts>
     + W zadaniu `build:client-and-server-bundles`
-        - Zmienić `my-project` na `test-angular-youtube`
+        - Zmienić `my-project` na `workshop-angular-youtube`
         - W tym samym zadaniu, usunąć `:production` z końca polecenia
 * `angular.json`: Zamienić:
-    + w `projects/test-angular-youtube/architect/build/options/`
+    + w `projects/workshop-angular-youtube/architect/build/options/`
         - klucz `outputPath` na `dist/browser`
-    + w `projects/test-angular-youtube/architect/server/options/`
+    + w `projects/workshop-angular-youtube/architect/server/options/`
         - klucz `outputPath` na `dist/server`
 * `server.ts`: Zmienić
     + `server/main` na `dist/server/main` w okolicach 25 linijki
 * Uruchomić `npm run build:ssr && npm run serve:ssr`
-
-</details>
-
-### 14. Deployment — Heroku
-
-<details>
 
 </details>

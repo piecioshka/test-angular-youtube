@@ -48,7 +48,7 @@ import { HeaderComponent } from './components/header/header.component';
         FooterComponent
     ],
     imports: [
-        BrowserModule.withServerTransition({ appId: 'test-angular-youtube' }),
+        BrowserModule.withServerTransition({ appId: 'workshop-angular-youtube' }),
         AppRoutingModule,
         SharedModule,
         FormsModule,
