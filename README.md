@@ -2,7 +2,6 @@
 
 [![travis-ci](https://api.travis-ci.org/piecioshka/workshop-angular-youtube.svg?branch=master)](https://travis-ci.org/piecioshka/workshop-angular-youtube)
 [![circle-ci](https://circleci.com/gh/piecioshka/workshop-angular-youtube.svg?style=svg)](https://circleci.com/gh/piecioshka/workshop-angular-youtube)
-[![snyk](https://snyk.io/test/github/piecioshka/workshop-angular-youtube/badge.svg?targetFile=package.json)](https://snyk.io/test/github/piecioshka/workshop-angular-youtube?targetFile=package.json)
 
 💾 Workshop project — Test Angular app
 
@@ -321,7 +320,7 @@
         - `AppComponent`
 * Obok pliku `main.ts` stworzyć plik `main.server.ts`:
 * `main.server.ts`:
-    + Weksportować `AppServerModule`
+    + Wyeksportować `AppServerModule`
 * Skopiować `tsconfig.app.json` do `tsconfig.server.json`
 * W pliku `tsconfig.server.json`:
     + `compilerOptions`
