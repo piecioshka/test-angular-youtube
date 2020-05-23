@@ -3,7 +3,7 @@
 [![travis-ci](https://api.travis-ci.org/piecioshka/workshop-angular-youtube.svg?branch=master)](https://travis-ci.org/piecioshka/workshop-angular-youtube)
 [![circle-ci](https://circleci.com/gh/piecioshka/workshop-angular-youtube.svg?style=svg)](https://circleci.com/gh/piecioshka/workshop-angular-youtube)
 
-💾 Workshop project — Test Angular app
+💾 Workshop project — Angular
 
 ## Demo 🎉
 
